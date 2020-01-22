@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 3ad1ba430572b074dab1b822f1930c61
+  - enabled: 1
+    path: Assets/Scenes/LoadingScreen.unity
+    guid: f5855affc328b16458ca3e0cb6642695
+  - enabled: 1
+    path: Assets/Scenes/Map 1.unity
+    guid: 0f927c3cfafabd3468f47ca98311a314
+  - enabled: 0
+    path: Assets/Scenes/Map 2.unity
+    guid: 417ce3efc65a21944904c4c846d9d3d1
+  - enabled: 0
+    path: Assets/Photon/PhotonUnityNetworking/Demos/DemoAsteroids/Scenes/DemoAsteroids-LobbyScene.unity
+    guid: c8a9d1312a49dc8488a9b32d83d659c7
+  - enabled: 0
+    path: Assets/Photon/PhotonUnityNetworking/Demos/DemoAsteroids/Scenes/DemoAsteroids-GameScene.unity
+    guid: 98efc37d6307844488eb3e4247dde7e9
+  - enabled: 0
+    path: Assets/Scenes/Networking Test.unity
+    guid: ae8edf76889a15b4c8286ebc3bb458be
+  - enabled: 0
+    path: Assets/Scenes/Room for 1.unity
+    guid: 008340f8822bd914f8a43217c158f7ad
+  - enabled: 0
+    path: Assets/Scenes/Room for 2.unity
+    guid: faa81cfb014734144a101cba37ca20c8
+  - enabled: 0
+    path: Assets/Scenes/Room for 3.unity
+    guid: 60b9b003b8dfdda4aab98213610ba65f
+  - enabled: 0
+    path: Assets/Scenes/Room for 4.unity
+    guid: f22dd027ae66dca448ab5187274bfcd5
+  m_configObjects: {}

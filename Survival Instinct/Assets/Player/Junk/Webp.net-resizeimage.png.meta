@@ -1,0 +1,2263 @@
+fileFormatVersion: 2
+guid: 558c6f100f18d294fb4a544d484f30fc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5257876566971338833
+    second: Webp.net-resizeimage_0
+  - first:
+      213: 4428077441654168771
+    second: Webp.net-resizeimage_1
+  - first:
+      213: 5697937144362630101
+    second: Webp.net-resizeimage_2
+  - first:
+      213: 917587720537870052
+    second: Webp.net-resizeimage_3
+  - first:
+      213: -3587765232800211832
+    second: Webp.net-resizeimage_4
+  - first:
+      213: -2745543684110549282
+    second: Webp.net-resizeimage_5
+  - first:
+      213: -6172365517133098297
+    second: Webp.net-resizeimage_6
+  - first:
+      213: 7483995521416116758
+    second: Webp.net-resizeimage_7
+  - first:
+      213: -5128200941815651725
+    second: Webp.net-resizeimage_8
+  - first:
+      213: -3993524376679853033
+    second: Webp.net-resizeimage_9
+  - first:
+      213: -6132877270021935409
+    second: Webp.net-resizeimage_10
+  - first:
+      213: 1614218092048331887
+    second: Webp.net-resizeimage_11
+  - first:
+      213: -7895210253572739695
+    second: Webp.net-resizeimage_12
+  - first:
+      213: 2408926880757694692
+    second: Webp.net-resizeimage_13
+  - first:
+      213: 2662794491977852548
+    second: Webp.net-resizeimage_14
+  - first:
+      213: 3182135305656780246
+    second: Webp.net-resizeimage_15
+  - first:
+      213: -5912709209802534329
+    second: Webp.net-resizeimage_16
+  - first:
+      213: -3192295548852236878
+    second: Webp.net-resizeimage_17
+  - first:
+      213: -8554601907517146976
+    second: Webp.net-resizeimage_18
+  - first:
+      213: -2557574287288003929
+    second: Webp.net-resizeimage_19
+  - first:
+      213: 5778086740967541881
+    second: Webp.net-resizeimage_20
+  - first:
+      213: 7192576587104988494
+    second: Webp.net-resizeimage_21
+  - first:
+      213: 1407680001650524328
+    second: Webp.net-resizeimage_22
+  - first:
+      213: 8495580036941673819
+    second: Webp.net-resizeimage_23
+  - first:
+      213: 5504618948882103392
+    second: Webp.net-resizeimage_24
+  - first:
+      213: -1652882245596084595
+    second: Webp.net-resizeimage_25
+  - first:
+      213: 640643455778789950
+    second: Webp.net-resizeimage_26
+  - first:
+      213: 2772460647064220587
+    second: Webp.net-resizeimage_27
+  - first:
+      213: 3668231424414289686
+    second: Webp.net-resizeimage_28
+  - first:
+      213: -869232084295148165
+    second: Webp.net-resizeimage_29
+  - first:
+      213: 2923721473839340156
+    second: Webp.net-resizeimage_30
+  - first:
+      213: -2258165397067261360
+    second: Webp.net-resizeimage_31
+  - first:
+      213: -2073104253419965829
+    second: Webp.net-resizeimage_32
+  - first:
+      213: 634387691388915582
+    second: Webp.net-resizeimage_33
+  - first:
+      213: -4407702253799136048
+    second: Webp.net-resizeimage_34
+  - first:
+      213: -4728105454379421859
+    second: Webp.net-resizeimage_35
+  - first:
+      213: -7988192583409787134
+    second: Webp.net-resizeimage_36
+  - first:
+      213: -6897425426033620657
+    second: Webp.net-resizeimage_37
+  - first:
+      213: -2549369054266869283
+    second: Webp.net-resizeimage_38
+  - first:
+      213: 682738899445369508
+    second: Webp.net-resizeimage_39
+  - first:
+      213: 7334613778604728977
+    second: Webp.net-resizeimage_40
+  - first:
+      213: 7248214898807697624
+    second: Webp.net-resizeimage_41
+  - first:
+      213: 2015737229679589930
+    second: Webp.net-resizeimage_42
+  - first:
+      213: -6635196840361279142
+    second: Webp.net-resizeimage_43
+  - first:
+      213: -4482888333448444587
+    second: Webp.net-resizeimage_44
+  - first:
+      213: 5901477932588464515
+    second: Webp.net-resizeimage_45
+  - first:
+      213: -6838530368549734763
+    second: Webp.net-resizeimage_46
+  - first:
+      213: 2599769432460310763
+    second: Webp.net-resizeimage_47
+  - first:
+      213: 4694642053166951591
+    second: Webp.net-resizeimage_48
+  - first:
+      213: -9095178115480617090
+    second: Webp.net-resizeimage_49
+  - first:
+      213: -3375319243718087506
+    second: Webp.net-resizeimage_50
+  - first:
+      213: -4148910786853611058
+    second: Webp.net-resizeimage_51
+  - first:
+      213: -6293663792154642059
+    second: Webp.net-resizeimage_52
+  - first:
+      213: 6979620777544416279
+    second: Webp.net-resizeimage_53
+  - first:
+      213: -2579960174930383665
+    second: Webp.net-resizeimage_54
+  - first:
+      213: -7649503863157815979
+    second: Webp.net-resizeimage_55
+  - first:
+      213: 1977703072739007843
+    second: Webp.net-resizeimage_56
+  - first:
+      213: 4466911285232538370
+    second: Webp.net-resizeimage_57
+  - first:
+      213: 2239664861368841924
+    second: Webp.net-resizeimage_58
+  - first:
+      213: -5105655171800047134
+    second: Webp.net-resizeimage_59
+  - first:
+      213: 5206531492358781863
+    second: Webp.net-resizeimage_60
+  - first:
+      213: 7467607768127193560
+    second: Webp.net-resizeimage_61
+  - first:
+      213: -7129001584879090726
+    second: Webp.net-resizeimage_62
+  - first:
+      213: -3559214061500535702
+    second: Webp.net-resizeimage_63
+  - first:
+      213: 4772286871101952004
+    second: Webp.net-resizeimage_64
+  - first:
+      213: -3725180309061643164
+    second: Webp.net-resizeimage_65
+  - first:
+      213: -166789948700348212
+    second: Webp.net-resizeimage_66
+  - first:
+      213: 6894797562276538587
+    second: Webp.net-resizeimage_67
+  - first:
+      213: -1233242252394362245
+    second: Webp.net-resizeimage_68
+  - first:
+      213: -2289452852007227164
+    second: Webp.net-resizeimage_69
+  - first:
+      213: -5944400285645053438
+    second: Webp.net-resizeimage_70
+  - first:
+      213: -5987586493879087558
+    second: Webp.net-resizeimage_71
+  - first:
+      213: 3479891826833895034
+    second: Webp.net-resizeimage_72
+  - first:
+      213: 2138900462734276225
+    second: Webp.net-resizeimage_73
+  - first:
+      213: -8657406980171403329
+    second: Webp.net-resizeimage_74
+  - first:
+      213: -2616194418177349043
+    second: Webp.net-resizeimage_75
+  - first:
+      213: -7088881191982715030
+    second: Webp.net-resizeimage_76
+  - first:
+      213: -3640022485130131108
+    second: Webp.net-resizeimage_77
+  - first:
+      213: 7890994939571764015
+    second: Webp.net-resizeimage_78
+  - first:
+      213: 20425421376038833
+    second: Webp.net-resizeimage_79
+  - first:
+      213: -1138720984852760284
+    second: Webp.net-resizeimage_80
+  - first:
+      213: -8399771685238783284
+    second: Webp.net-resizeimage_81
+  - first:
+      213: 8778578188106919712
+    second: Webp.net-resizeimage_82
+  - first:
+      213: 1206013046252279726
+    second: Webp.net-resizeimage_83
+  - first:
+      213: -4119398554182142637
+    second: Webp.net-resizeimage_84
+  - first:
+      213: 5072382885541911483
+    second: Webp.net-resizeimage_85
+  - first:
+      213: 2710723083631237330
+    second: Webp.net-resizeimage_86
+  - first:
+      213: 7580899947956533432
+    second: Webp.net-resizeimage_87
+  - first:
+      213: 8299066785783671144
+    second: Webp.net-resizeimage_88
+  - first:
+      213: 3707691448946767918
+    second: Webp.net-resizeimage_89
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 421
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de1e3ca74a7fc8b478d5be42db8fcbcd
+      internalID: -5257876566971338833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_1
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 421
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f1c3e9fc307cef46802fae96e8b6ae1
+      internalID: 4428077441654168771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_2
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 421
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56819b785757af44291e19f8a4be8a67
+      internalID: 5697937144362630101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_3
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 421
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0af2ffacaac5b034680e8c1f4414bfc3
+      internalID: 917587720537870052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_4
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 421
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7454aca6772e1264b94ac0dc45944bfd
+      internalID: -3587765232800211832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_5
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 421
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d54c8a8612eec0a45ba65a7221f579a8
+      internalID: -2745543684110549282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_6
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 421
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46e23bdc673cc1e4d81e5d67c527b16a
+      internalID: -6172365517133098297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_7
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 421
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2e68b9c416377e4a95c59b6e4ce23a5
+      internalID: 7483995521416116758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_8
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 421
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36d30837a7de6ea4ebb7594a93429b43
+      internalID: -5128200941815651725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_9
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 421
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0245ab379af8f924e991ffd942a4625b
+      internalID: -3993524376679853033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_10
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 421
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8d36fb51c7b2be4994ecf67936f0c8d
+      internalID: -6132877270021935409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_11
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 421
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 522ce44aca2c00a4f8b175c3c22e81a9
+      internalID: 1614218092048331887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_12
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 421
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e5f17e02cacbcd488d55b019a8ac931
+      internalID: -7895210253572739695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_13
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 421
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17b6c7d5c74eb1a45baae01095caf750
+      internalID: 2408926880757694692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_14
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 421
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7e29345b1e537543a37f850d51c0579
+      internalID: 2662794491977852548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 338
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b27d41e02e253f4458229e48322aa75e
+      internalID: 3182135305656780246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_16
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 338
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 187957146b5c95b48ad9601edc4586bb
+      internalID: -5912709209802534329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_17
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 338
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dd0082ed5deb1d41b13fd88b4ed6970
+      internalID: -3192295548852236878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_18
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 338
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7a4a4adba200b34982d8f3e0a68879f
+      internalID: -8554601907517146976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_19
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 338
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8c090d4a30b759459b7cc332bb51d75
+      internalID: -2557574287288003929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_20
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 338
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b984ec0b23d4d714fad982ebe18e3f06
+      internalID: 5778086740967541881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_21
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 338
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba09bfe87b50c4441a0d0653a39056aa
+      internalID: 7192576587104988494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_22
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 338
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a8816dc110c85b4fa70bb59b4c5e054
+      internalID: 1407680001650524328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_23
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 338
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02aeb06177464e64fbb0f460292e274a
+      internalID: 8495580036941673819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_24
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 338
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97ab6b7b99b10ce4ba9c76d0cc9e6e41
+      internalID: 5504618948882103392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_25
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 338
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfb6d8a43e32f7b409f64f84e0ff7898
+      internalID: -1652882245596084595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_26
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 338
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c60634ea628694f428cb914533e548f7
+      internalID: 640643455778789950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_27
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 338
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0391a29f15cb00f409885fdd08103e6a
+      internalID: 2772460647064220587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_28
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 338
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecf53b928d4368844adfa146794d83af
+      internalID: 3668231424414289686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_29
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 338
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26283ff78000ebe43bfc33df1b2275b4
+      internalID: -869232084295148165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 255
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a016f8e30dd8605409e727e8b778e1a9
+      internalID: 2923721473839340156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_31
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 255
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4171d4fd077ceb344b101d305db5fc73
+      internalID: -2258165397067261360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_32
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 255
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08e9e3b8d159ed4fba38c074df78329
+      internalID: -2073104253419965829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_33
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 255
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af19180298c49b64986acb45cebfdbe3
+      internalID: 634387691388915582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_34
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 255
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1988b03574e2a7d4b8d131c690e72157
+      internalID: -4407702253799136048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_35
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 255
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7e0b81dbcf1221479d260aafeb5745f
+      internalID: -4728105454379421859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_36
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 255
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37d99a5d323fc3b45962054c2176fa55
+      internalID: -7988192583409787134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_37
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 255
+        width: 75
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 464fe5d8e64b7c8409a595ec1244e26e
+      internalID: -6897425426033620657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_38
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 255
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0eb8de3076b1f64aa468465e962b2e0
+      internalID: -2549369054266869283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_39
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 255
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 567708f064747a6428c0954958448423
+      internalID: 682738899445369508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_40
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 255
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a45c295fd4e7b5e4ca212f74857397f2
+      internalID: 7334613778604728977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_41
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 255
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cb624a37cf2ccb4c8afe8b21183244a
+      internalID: 7248214898807697624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_42
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 255
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b1abf4ead03f99419bcd7933a4268bd
+      internalID: 2015737229679589930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_43
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 255
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a648f1cc64cc9ae499263e6604c45222
+      internalID: -6635196840361279142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_44
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 255
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b94747359075854584586224208c900
+      internalID: -4482888333448444587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_45
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 172
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40e6621d867319d4bb926ff32b2b0a27
+      internalID: 5901477932588464515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_46
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 172
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e58607fc4203ffc489bed89e82c2763c
+      internalID: -6838530368549734763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_47
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 172
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f8cdfd4660974142af634ac838ac0cb
+      internalID: 2599769432460310763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_48
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 172
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e29ed38ecfbe904eae177c148096738
+      internalID: 4694642053166951591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_49
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 172
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d173562a38887564c90583bf576b7346
+      internalID: -9095178115480617090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_50
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 172
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff60fff65fa5b454dbf290cac2ee4968
+      internalID: -3375319243718087506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_51
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 172
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36fe5582f62dbd2449e9f7c7a502a595
+      internalID: -4148910786853611058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_52
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 172
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98cd37fe300b1a546affb56d29316d73
+      internalID: -6293663792154642059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_53
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 172
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5848cc1d3a0fa384ea684b698849ace6
+      internalID: 6979620777544416279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_54
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 172
+        width: 70
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 783d5bfd88dce074f8d663b0378846d4
+      internalID: -2579960174930383665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_55
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 172
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb09213eac930664dbbb1fdad6097e63
+      internalID: -7649503863157815979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_56
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 170
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56aeec0d19bf4ad4ba9a15dda3df8399
+      internalID: 1977703072739007843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_57
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 172
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7f8e138196d5e24f99f6e04bac7de65
+      internalID: 4466911285232538370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_58
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 172
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4075f0b373e164744aed0682d005f0d1
+      internalID: 2239664861368841924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_59
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 172
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 353d54c7ba2f7f64fa68487137e65ac1
+      internalID: -5105655171800047134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 89
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1737840d0a39b3944851bd5041b0a664
+      internalID: 5206531492358781863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_61
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 89
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbebf844c0eb0a64db768ef7afc413f5
+      internalID: 7467607768127193560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_62
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 89
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a993bdbfc3b53184e89619ca0992bb71
+      internalID: -7129001584879090726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_63
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 89
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67835e7fd21ad604083372e40fde5efe
+      internalID: -3559214061500535702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_64
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 89
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41976458201252a46911d63ecc476179
+      internalID: 4772286871101952004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_65
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 89
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba1fb8a93d487f54f969b2c88a47e553
+      internalID: -3725180309061643164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_66
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 89
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db8f0fabcb77b89439cd209bf24477c9
+      internalID: -166789948700348212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_67
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 89
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa9d25c185101f240b1a953ddf2c81ba
+      internalID: 6894797562276538587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_68
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 89
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a1551db2dd766241896dc046e565e4e
+      internalID: -1233242252394362245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_69
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 89
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57827bdbff000164cb6ec49035e37c7a
+      internalID: -2289452852007227164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_70
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 89
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95136ca630985d946815b6148b17508a
+      internalID: -5944400285645053438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_71
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 89
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e94f8c6ee656c2498f2e9cf45261d67
+      internalID: -5987586493879087558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_72
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 89
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f840a0e33ca4a849bfab4facac92586
+      internalID: 3479891826833895034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_73
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 89
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d510a3ab5301c1a4f923010206d41b8a
+      internalID: 2138900462734276225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_74
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 89
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 768de21dd6b30d54b89277e3eb92b2b1
+      internalID: -8657406980171403329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4198cfe15359e7b4b8b49e6876c7ec5c
+      internalID: -2616194418177349043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_76
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 6
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56a13a35aa0a27e4cadc96f156f0ee26
+      internalID: -7088881191982715030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_77
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 6
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2cb5e330f942e4469c409681b19edcd
+      internalID: -3640022485130131108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_78
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 6
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 963ca816281f0984eb0ed23a1e505438
+      internalID: 7890994939571764015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_79
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 6
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 922c550e97a1da54b804eec457185452
+      internalID: 20425421376038833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_80
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 6
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e2cc5195e6863d4eab8ea6d563ac76c
+      internalID: -1138720984852760284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_81
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 6
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e49421d75b25afa4fbafb8f58f04f016
+      internalID: -8399771685238783284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_82
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 6
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eae9ddb4de7c52c4d8a46cbb4e97ef0e
+      internalID: 8778578188106919712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_83
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 6
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89ea76a33f056e14182ef070d1636e92
+      internalID: 1206013046252279726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_84
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 6
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1db2f6354be4bff47a58302338e6276a
+      internalID: -4119398554182142637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_85
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 6
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24b51dc28ad26ca48b3036b55ec252ba
+      internalID: 5072382885541911483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_86
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 6
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd97bdcdf0764e84ab47ca84bcda6680
+      internalID: 2710723083631237330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_87
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 6
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b1d834c71a0ce341bc1ca9a51361136
+      internalID: 7580899947956533432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_88
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 6
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1711e3289feb7794e9f19ce371c90382
+      internalID: 8299066785783671144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Webp.net-resizeimage_89
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 6
+        width: 83
+        height: 83
+      alignment: 9
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecefc69db12e3ac4bba7e2123320dcb0
+      internalID: 3707691448946767918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: d5a886d8106dddc41a3fe60ef8a8405a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

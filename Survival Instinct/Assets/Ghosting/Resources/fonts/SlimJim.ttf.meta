@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: af2dfb19c06b65640ad50381aa57115a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Slim Jim
+  fontNames:
+  - Slim Jim
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 6f6f5bfe0f0dd7a4a8c8e0e8264a0413, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

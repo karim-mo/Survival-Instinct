@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - FxTemporaire
+  - Enemy
+  - Ground
+  - Bullet
+  - PlayerWeapon
+  - EnemyBullet
+  - SpreadPower
+  - HealthPower
+  - FirePower
+  - GM
+  - Particle
+  - Sword
+  - vcam
+  - GhostWalk
+  - Ghosts
+  - Water
+  - Laser
+  - Shield
+  - RangePower
+  - ShieldPower
+  - MovPower
+  - AMAZINGLOGIC
+  - BossBullet
+  - tran
+  - Steck
+  - middlePos
+  - leftPos
+  - rightPos
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Player
+  - AH
+  - OBSTACLES
+  - Ground
+  - Enemy
+  - GhostWalk
+  - Shield
+  - Boundaries
+  - UI2
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 2237341683
+    locked: 0
+  - name: Water
+    uniqueID: 1600883451
+    locked: 0
+  - name: Boss
+    uniqueID: 442907215
+    locked: 0
+  - name: OBSTACLE
+    uniqueID: 3805720027
+    locked: 0
