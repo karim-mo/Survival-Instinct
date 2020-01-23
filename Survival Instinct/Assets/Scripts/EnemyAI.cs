@@ -482,6 +482,7 @@ public class EnemyAI : MonoBehaviourPun, IPunObservable
             //Debug.Log(transform.rotation.z);
             //Debug.Log(UnityEditor.TransformUtils.GetInspectorRotation(gameObject.transform).z);
             float rotZ = UnityEditor.TransformUtils.GetInspectorRotation(gameObject.transform).z;
+            //float rotZ = 55;
             transform.right = target.position - transform.position;
             if(transform.position.y > target.position.y)
             {

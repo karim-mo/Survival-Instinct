@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class Lilith : MonoBehaviourPun
+public class Lilith : MonoBehaviourPun, IPunObservable
 {
     [Header("Explosion")]
     public GameObject explo;
@@ -14,7 +14,8 @@ public class Lilith : MonoBehaviourPun
     public Transform middlePos;
     public Transform leftPos;
     public Transform rightPos;
-    public GameObject Meteor;
+    public GameObject homingMeteor;
+    public GameObject meteor;
 
     [Header("Meteor spawns")]
     public Transform[] bossMeteorSpawns;
@@ -69,6 +70,14 @@ public class Lilith : MonoBehaviourPun
         leftPos = GameObject.FindGameObjectWithTag("leftPos").gameObject.transform;
         rightPos = GameObject.FindGameObjectWithTag("rightPos").gameObject.transform;
 
+        GameObject[] _leftMeteorSpawns = GameObject.FindGameObjectsWithTag("leftMeteorSpawns");
+        Transform[] _leftMeteorPOS = new Transform[_leftMeteorSpawns.Length];
+        int i = 0;
+        foreach(GameObject p in _leftMeteorSpawns)
+        {
+            _leftMeteorPOS[i++] = p.transform;
+        }
+        leftMeteorSpawns = _leftMeteorPOS;
         maxHealth = health;
 
         StartCoroutine("BossPattern");
@@ -240,7 +249,7 @@ public class Lilith : MonoBehaviourPun
         GameObject[] meteors = new GameObject[4];
         for(int i = 0; i < bossMeteorSpawns.Length; i++)
         {
-            GameObject _meteor = PhotonNetwork.Instantiate(Meteor.name, bossMeteorSpawns[i].position, Quaternion.identity);
+            GameObject _meteor = PhotonNetwork.Instantiate(homingMeteor.name, bossMeteorSpawns[i].position, Quaternion.identity);
             meteors[i] = _meteor;
         }
 
@@ -322,8 +331,28 @@ public class Lilith : MonoBehaviourPun
     {
         Debug.Log("haha");
         yield return new WaitForSeconds(3);
+
+        int frequency = 10;
+        while(frequency > 0)
+        {
+            for(int i = 0; i < leftMeteorSpawns.Length; i++)
+            {
+                StartCoroutine(spawn(Random.Range(0.2f, 0.8f), leftMeteorSpawns[i]));
+            }
+            frequency--;
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        yield return new WaitForSeconds(2f);
         ready = true;
         yield return null;
+    }
+
+    IEnumerator spawn(float time, Transform _spawn)
+    {
+        yield return new WaitForSeconds(time);
+        GameObject _meteor = PhotonNetwork.Instantiate(meteor.name, _spawn.position, Quaternion.identity);
+        _meteor.GetComponent<Rigidbody2D>().velocity = _spawn.right * Random.Range(7, 15);
     }
 
     IEnumerator Teleport(Transform p)
