@@ -112,6 +112,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
         anim = GetComponent<Animator>();
         composer = GameObject.FindGameObjectWithTag("vcam").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineFramingTransposer>();
         shield = GetComponent<Shield>();
+        
         if (PhotonNetwork.OfflineMode)
         {
             transition = GameObject.FindGameObjectWithTag("tran").GetComponent<Animator>();
@@ -332,6 +333,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
     public void UpdateStats()
     {
         health = PlayerStats.maxHealth;
+        Debug.Log(PlayerStats.maxHealth);
         shield.shieldAmt = PlayerStats.maxShield;
         shield.health = shield.shieldAmt;
         speed = PlayerStats.Speed;
