@@ -329,7 +329,6 @@ public class Lilith : MonoBehaviourPun, IPunObservable
 
     IEnumerator _mech90()
     {
-        Debug.Log("haha");
         yield return new WaitForSeconds(3);
 
         int frequency = 10;
@@ -345,7 +344,44 @@ public class Lilith : MonoBehaviourPun, IPunObservable
 
         yield return new WaitForSeconds(2f);
         ready = true;
-        yield return null;
+    }
+
+    IEnumerator _mech60()
+    {
+        yield return new WaitForSeconds(3);
+
+        int frequency = 10;
+        while (frequency > 0)
+        {
+            for (int i = 0; i < rightMeteorSpawns.Length; i++)
+            {
+                StartCoroutine(spawn(Random.Range(0.2f, 0.8f), rightMeteorSpawns[i]));
+            }
+            frequency--;
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        yield return new WaitForSeconds(2f);
+        ready = true;
+    }
+
+    IEnumerator _mech30()
+    {
+        yield return new WaitForSeconds(3);
+
+        int frequency = 10;
+        while (frequency > 0)
+        {
+            for (int i = 0; i < topMeteorSpawns.Length; i++)
+            {
+                StartCoroutine(spawn(Random.Range(0.2f, 0.8f), topMeteorSpawns[i]));
+            }
+            frequency--;
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        yield return new WaitForSeconds(2f);
+        ready = true;
     }
 
     IEnumerator spawn(float time, Transform _spawn)
