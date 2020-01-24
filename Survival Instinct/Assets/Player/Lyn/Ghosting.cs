@@ -20,7 +20,7 @@ public class Ghosting : MonoBehaviour
 
         foreach (GameObject p in players)
         {
-            Debug.Log(p);
+            //Debug.Log(p);
             if (p.GetComponent<PlayerController>().isMine())
             {
                 player = p.GetComponent<Transform>();
