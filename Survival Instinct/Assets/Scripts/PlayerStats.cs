@@ -34,25 +34,12 @@ public class PlayerStats : MonoBehaviour
     public float ShieldPtsSoft;
     public float ShieldPts;
 
-    private PlayerController player;
 
     private int HP, DP, MP, LP, SP;
     public static float maxHealth, Damage, Speed, LSteal, maxShield;
 
-    private void Start()
-    {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-
-        foreach (GameObject p in players)
-        {
-            //Debug.Log(p);
-            if (p.GetComponent<PlayerController>().isMine())
-            {
-                player = p.GetComponent<PlayerController>();
-                break;
-            }
-        }
-
+    private void Awake()
+    {      
         Refresh();
     }
 
@@ -63,7 +50,7 @@ public class PlayerStats : MonoBehaviour
         MP = PlayerPrefs.GetInt("MP");
         LP = PlayerPrefs.GetInt("LP");
         SP = PlayerPrefs.GetInt("SP");
-
+        
         maxHealth = baseHP + (HP <= hpCap ? HP * hpPtsSoft : ((HP - hpCap) * hpPts + hpCap * hpPtsSoft));
         Damage = baseDmg + (DP <= DmgCap ? DP * DmgPtsSoft : ((DP - DmgCap) * DmgPts + DmgCap * DmgPtsSoft));
         Speed = baseSpeed + (MP <= SpeedCap ? MP * SpeedPtsSoft : ((MP - SpeedCap) * SpeedPts + SpeedCap * SpeedPtsSoft));

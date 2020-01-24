@@ -17,7 +17,7 @@ public class StatsGUIConfirm : MonoBehaviour
     private void Start()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-
+        //Debug.Log("a7a2");
         foreach (GameObject p in players)
         {
             //Debug.Log(p);
@@ -27,7 +27,7 @@ public class StatsGUIConfirm : MonoBehaviour
                 break;
             }
         }
-        //Just a little extra response\
+        //Just a little extra response
         Points.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("PTS").ToString();
         values[0].GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("HP").ToString();
         values[1].GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("DP").ToString();
