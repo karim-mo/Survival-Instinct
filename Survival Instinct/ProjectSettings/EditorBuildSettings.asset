@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Map 2 test.unity
     guid: e3dadde25287cbb4c996344d273d2486
   - enabled: 0
-    path: Assets/Scenes/Map 2.unity
+    path: Assets/Scenes/Map 3.unity
     guid: 417ce3efc65a21944904c4c846d9d3d1
   - enabled: 0
     path: Assets/Photon/PhotonUnityNetworking/Demos/DemoAsteroids/Scenes/DemoAsteroids-LobbyScene.unity

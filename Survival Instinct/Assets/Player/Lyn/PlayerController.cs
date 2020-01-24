@@ -333,7 +333,6 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
     public void UpdateStats()
     {
         health = PlayerStats.maxHealth;
-        Debug.Log(PlayerStats.maxHealth);
         shield.shieldAmt = PlayerStats.maxShield;
         shield.health = shield.shieldAmt;
         speed = PlayerStats.Speed;

@@ -30,7 +30,7 @@ public class NetworkMgr : MonoBehaviourPun
         cam.GetComponent<CinemachineVirtualCamera>().Follow = Lyn.transform;
         cam.GetComponent<CinemachineVirtualCamera>().LookAt = Lyn.transform;
         Lyn.GetComponent<Lyn>().joystick = steck;
-        //Lyn.GetComponent<PlayerController>().UpdateStats();
+        //Debug.Log(Lyn.GetComponent<PlayerController>().health);
 
         if (!PhotonNetwork.OfflineMode)
             Lyn.GetComponent<PlayerController>().playerName.GetComponent<TextMeshProUGUI>().text = Lyn.GetComponent<PhotonView>().Owner.NickName;
