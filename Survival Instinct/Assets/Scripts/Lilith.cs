@@ -57,6 +57,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
     bool mech60 = false;
     bool mech30 = false;
     bool mech10 = false;
+    bool mech10B = false;
 
     void Start()
     {
@@ -78,6 +79,24 @@ public class Lilith : MonoBehaviourPun, IPunObservable
             _leftMeteorPOS[i++] = p.transform;
         }
         leftMeteorSpawns = _leftMeteorPOS;
+
+        GameObject[] _rightMeteorSpawns = GameObject.FindGameObjectsWithTag("rightMeteorSpawns");
+        Transform[] _rightMeteorPOS = new Transform[_rightMeteorSpawns.Length];
+        i = 0;
+        foreach (GameObject p in _rightMeteorSpawns)
+        {
+            _rightMeteorPOS[i++] = p.transform;
+        }
+        rightMeteorSpawns = _rightMeteorPOS;
+
+        GameObject[] _topMeteorSpawns = GameObject.FindGameObjectsWithTag("topMeteorSpawns");
+        Transform[] _topMeteorPOS = new Transform[_topMeteorSpawns.Length];
+        i = 0;
+        foreach (GameObject p in _topMeteorSpawns)
+        {
+            _topMeteorPOS[i++] = p.transform;
+        }
+        topMeteorSpawns = _topMeteorPOS;
         maxHealth = health;
 
         StartCoroutine("BossPattern");
@@ -241,6 +260,25 @@ public class Lilith : MonoBehaviourPun, IPunObservable
     }
 
 
+    public Transform findFurthest()
+    {
+        Transform _player = null;
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+        float maxDist = -999999;
+        foreach(GameObject p in players)
+        {
+            float dist = Vector2.Distance(this.transform.position, p.transform.position);
+            if (dist > maxDist)
+            {
+                maxDist = dist;
+                _player = p.transform;
+            }
+        }
+        return _player;
+    }
+
+
     IEnumerator BossPattern()
     {
         yield return new WaitForSeconds(5);
@@ -250,6 +288,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         for(int i = 0; i < bossMeteorSpawns.Length; i++)
         {
             GameObject _meteor = PhotonNetwork.Instantiate(homingMeteor.name, bossMeteorSpawns[i].position, Quaternion.identity);
+            _meteor.GetComponent<Meteors>().damage = damage;
             meteors[i] = _meteor;
         }
 
@@ -288,6 +327,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         Color alpha = sr.color;
         alpha.a = 0f;
         sr.color = alpha;
+
         switch (state)
         {
             case 0:
@@ -300,7 +340,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
                 transform.position = rightPos.position;
                 break;
         }
-        
+
 
         for (float i = 0; i <= 1.0; i += 0.1f)
         {
@@ -313,7 +353,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         alpha = sr.color;
         alpha.a = 1.0f;
         sr.color = alpha;
-
+        
         anim.SetInteger("state", 1);
         //boss health bar communication goes here
         ready = false;
@@ -321,9 +361,12 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         StartCoroutine("_mech" + mech);
         while (!ready) yield return null;
         anim.SetInteger("state", 0);
-        canTP = true;
-        canAttack = true;
-        StartCoroutine("BossPattern");
+        if (!mech10)
+        {
+            canTP = true;
+            canAttack = true;
+            StartCoroutine("BossPattern");
+        }
         pc.enabled = true;
     }
 
@@ -382,6 +425,45 @@ public class Lilith : MonoBehaviourPun, IPunObservable
 
         yield return new WaitForSeconds(2f);
         ready = true;
+        if (mech10) mech10B = true;
+    }
+
+    IEnumerator _mech10()
+    {
+        StopCoroutine("readyForMech");
+        ready = false;
+        
+        //Left
+        StartCoroutine(readyForMech(1, 90));
+        while (!ready) { Debug.Log(ready); yield return null; }
+        Debug.Log("started");
+        ready = false;
+        Transform furthestPlayer = findFurthest();
+        StartCoroutine(TeleportImm(furthestPlayer, true));
+        yield return new WaitForSeconds(0.6f);
+        
+        //Right
+        StartCoroutine(readyForMech(2, 60));
+        while (!ready) yield return null;
+        ready = false;
+        furthestPlayer = findFurthest();
+        StartCoroutine(TeleportImm(furthestPlayer, true));
+        yield return new WaitForSeconds(0.6f);
+
+
+        //Middle
+        StartCoroutine(readyForMech(0, 30));
+        while (!ready) yield return null;
+        ready = false;
+        furthestPlayer = findFurthest();
+        StartCoroutine(TeleportImm(furthestPlayer, true));
+        yield return new WaitForSeconds(0.6f);
+
+        while (!mech10B) yield return null;
+        //StartCoroutine("_mech10B");
+
+        //ready = true;
+        yield return null;
     }
 
     IEnumerator spawn(float time, Transform _spawn)
@@ -389,6 +471,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         yield return new WaitForSeconds(time);
         GameObject _meteor = PhotonNetwork.Instantiate(meteor.name, _spawn.position, Quaternion.identity);
         _meteor.GetComponent<Rigidbody2D>().velocity = _spawn.right * Random.Range(7, 15);
+        _meteor.GetComponent<Meteors>().damage = damage;
     }
 
     IEnumerator Teleport(Transform p)
