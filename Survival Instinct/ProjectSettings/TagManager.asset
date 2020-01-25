@@ -33,6 +33,8 @@ TagManager:
   - leftPos
   - rightPos
   - leftMeteorSpawns
+  - rightMeteorSpawns
+  - topMeteorSpawns
   layers:
   - Default
   - TransparentFX
