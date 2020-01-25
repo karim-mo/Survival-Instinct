@@ -61,8 +61,8 @@ public class Shield : MonoBehaviourPun
             health = 0;
             shieldUP = false;
             AudioManager.Play("ShieldBreak");
-            //PhotonNetwork.Destroy(sh);
-            Destroy(sh);
+            PhotonNetwork.Destroy(sh);
+            //Destroy(sh);
             player.Enable();
             recharging = States.MAXRECHARGE;
             StartCoroutine("Recharge");
