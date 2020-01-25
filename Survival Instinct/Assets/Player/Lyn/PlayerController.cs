@@ -385,6 +385,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
         {
             for(int j = 0; j < transform.GetChild(i).childCount; j++)
             {
+                if (transform.GetChild(i).GetChild(j).tag == "Mark") continue;
                 _scale = transform.GetChild(i).GetChild(j).localScale;
                 _scale.x *= -1;
                 transform.GetChild(i).GetChild(j).localScale = _scale;

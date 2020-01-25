@@ -164,7 +164,7 @@ public class EnemyAI : MonoBehaviourPun, IPunObservable
 
                 foreach (GameObject p in players)
                 {
-                    Debug.Log(p);
+                    //Debug.Log(p);
                     if (p.GetComponent<PlayerController>().isMine())
                     {
                         PlayerController player = p.GetComponent<PlayerController>();

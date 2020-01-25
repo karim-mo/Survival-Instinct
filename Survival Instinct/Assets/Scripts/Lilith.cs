@@ -288,6 +288,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         for(int i = 0; i < bossMeteorSpawns.Length; i++)
         {
             GameObject _meteor = PhotonNetwork.Instantiate(homingMeteor.name, bossMeteorSpawns[i].position, Quaternion.identity);
+            _meteor.GetComponent<Meteors>().damage = damage;
             meteors[i] = _meteor;
         }
 
@@ -449,6 +450,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         StartCoroutine(TeleportImm(furthestPlayer, true));
         yield return new WaitForSeconds(0.6f);
 
+
         //Middle
         StartCoroutine(readyForMech(0, 30));
         while (!ready) yield return null;
@@ -469,6 +471,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         yield return new WaitForSeconds(time);
         GameObject _meteor = PhotonNetwork.Instantiate(meteor.name, _spawn.position, Quaternion.identity);
         _meteor.GetComponent<Rigidbody2D>().velocity = _spawn.right * Random.Range(7, 15);
+        _meteor.GetComponent<Meteors>().damage = damage;
     }
 
     IEnumerator Teleport(Transform p)

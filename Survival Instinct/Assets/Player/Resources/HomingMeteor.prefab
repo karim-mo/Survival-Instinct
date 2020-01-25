@@ -12,11 +12,13 @@ GameObject:
   - component: {fileID: 8498671816096281377}
   - component: {fileID: 8498671816096281378}
   - component: {fileID: 8498671816096281390}
+  - component: {fileID: -3864987192836677704}
   - component: {fileID: 8498671816096281391}
   - component: {fileID: -5766837634815501220}
   - component: {fileID: 9140598822123238534}
   - component: {fileID: -4195826292485822265}
-  - component: {fileID: 1182703295525722469}
+  - component: {fileID: -1874169977463495417}
+  - component: {fileID: 6824397055130217589}
   m_Layer: 0
   m_Name: HomingMeteor
   m_TagString: Untagged
@@ -127,6 +129,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-3864987192836677704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8498671816096281379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f26f75d10e255949a619b7931bca16c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 0
+  explo: {fileID: 7894984294605643735, guid: 80d3b4d92a29b9f49bbad79153f62c44, type: 3}
+  damage: 0
 --- !u!114 &8498671816096281391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +179,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 9140598822123238534}
   - {fileID: -4195826292485822265}
+  - {fileID: -3864987192836677704}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -196,7 +214,23 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 1
---- !u!114 &1182703295525722469
+--- !u!58 &-1874169977463495417
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8498671816096281379}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.13
+--- !u!114 &6824397055130217589
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -208,4 +242,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4cf80c33325f84b8072bdcfab3440e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 7.5
+  timer: 5
