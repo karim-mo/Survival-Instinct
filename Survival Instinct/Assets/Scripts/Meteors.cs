@@ -20,7 +20,7 @@ public class Meteors : MonoBehaviourPun, IPunObservable
         {
             GameObject _explo = PhotonNetwork.Instantiate(explo.name, transform.position, Quaternion.identity);
             _explo.GetComponent<ExploDEATH>().damage = 0.5f * damage;
-            Destroy(this.gameObject);
+            PhotonNetwork.Destroy(this.gameObject);
         }
 
         if (collision.tag == "Player")
@@ -29,7 +29,7 @@ public class Meteors : MonoBehaviourPun, IPunObservable
             pos.y -= 0.5f;
             GameObject _explo = PhotonNetwork.Instantiate(explo.name, pos, Quaternion.identity);
             _explo.GetComponent<ExploDEATH>().damage = damage;
-            Destroy(this.gameObject);
+            PhotonNetwork.Destroy(this.gameObject);
         }
 
         if (collision.tag == "Shield")
@@ -53,7 +53,7 @@ public class Meteors : MonoBehaviourPun, IPunObservable
                 }
             }
 
-            Destroy(this.gameObject);
+            PhotonNetwork.Destroy(this.gameObject);
         }
 
     }

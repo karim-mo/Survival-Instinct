@@ -250,7 +250,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
     {
         PhotonView enemy = PhotonView.Find(eViewID);
         if (enemy == null) return;
-        enemy.gameObject.GetComponent<Boss1>().health -= dmg;
+        enemy.gameObject.GetComponent<Lilith>().health -= dmg;
     }
 
     [PunRPC]
@@ -435,8 +435,9 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         
         //Left
         StartCoroutine(readyForMech(1, 90));
-        while (!ready) { Debug.Log(ready); yield return null; }
-        Debug.Log("started");
+        while (!ready) yield return null;
+        FindObjectOfType<ERROR>().DisplayError("Lilith is locating her demon sacrifice.");
+        yield return new WaitForSeconds(3);
         ready = false;
         Transform furthestPlayer = findFurthest();
         StartCoroutine(TeleportImm(furthestPlayer, true));
@@ -445,6 +446,8 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         //Right
         StartCoroutine(readyForMech(2, 60));
         while (!ready) yield return null;
+        FindObjectOfType<ERROR>().DisplayError("Lilith is locating her demon sacrifice.");
+        yield return new WaitForSeconds(3);
         ready = false;
         furthestPlayer = findFurthest();
         StartCoroutine(TeleportImm(furthestPlayer, true));
@@ -454,16 +457,51 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         //Middle
         StartCoroutine(readyForMech(0, 30));
         while (!ready) yield return null;
+        FindObjectOfType<ERROR>().DisplayError("Lilith is locating her demon sacrifice.");
+        yield return new WaitForSeconds(3);
         ready = false;
         furthestPlayer = findFurthest();
         StartCoroutine(TeleportImm(furthestPlayer, true));
         yield return new WaitForSeconds(0.6f);
 
         while (!mech10B) yield return null;
-        //StartCoroutine("_mech10B");
+        StartCoroutine("_mech10B");
 
         //ready = true;
-        yield return null;
+        //yield return null;
+    }
+
+    IEnumerator _mech10B()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] meteors = new GameObject[4];
+        for (int i = 0; i < bossMeteorSpawns.Length; i++)
+        {
+            GameObject _meteor = PhotonNetwork.Instantiate(homingMeteor.name, bossMeteorSpawns[i].position, Quaternion.identity);
+            _meteor.GetComponent<Meteors>().damage = damage;
+            meteors[i] = _meteor;
+        }
+
+        yield return new WaitForSeconds(1);
+
+        int k = 3;
+        int j = 0;
+        while (k >= 0)
+        {
+            meteors[k].GetComponent<HomingMissile>().target = players[j % players.Length].transform;
+            j++;
+            k--;
+        }
+
+        yield return new WaitForSeconds(1);
+
+        FindObjectOfType<ERROR>().DisplayError("Lilith is locating her demon sacrifice.");
+        yield return new WaitForSeconds(3);
+        Transform furthestPlayer = findFurthest();
+        StartCoroutine(TeleportImm(furthestPlayer, true));
+        yield return new WaitForSeconds(0.6f);
+
+        StartCoroutine("_mech10B");
     }
 
     IEnumerator spawn(float time, Transform _spawn)
