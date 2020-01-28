@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using TMPro;
+using UnityEngine.UI;
 
 public class Lilith : MonoBehaviourPun, IPunObservable
 {
@@ -26,7 +28,9 @@ public class Lilith : MonoBehaviourPun, IPunObservable
 
     [Header("Stats")]
     public float health;
-    public float damage;
+    public float exploDamage;
+    public float meteorDamage;
+    public float homingDamage;
 
     [Header("Particles")]
     public GameObject onDeath;
@@ -40,13 +44,21 @@ public class Lilith : MonoBehaviourPun, IPunObservable
     public float spreadAngle = 8.0f;
 
 
+    [Header("Boss HP Bar")]
+    public GameObject bossBar;
+    public GameObject bossName;
+    public GameObject bossHp;
+    public GameObject bossPerc;
+
+
     Transform player;
 
     SpriteRenderer sr;
     PolygonCollider2D pc;
     Animator anim;
 
-    float maxHealth = 0;
+    [HideInInspector]
+    public float maxHealth = 0;
 
     bool canTP = false;
     bool canMove = false;
@@ -70,6 +82,13 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         middlePos = GameObject.FindGameObjectWithTag("middlePos").gameObject.transform;
         leftPos = GameObject.FindGameObjectWithTag("leftPos").gameObject.transform;
         rightPos = GameObject.FindGameObjectWithTag("rightPos").gameObject.transform;
+
+        bossBar = GameObject.FindGameObjectWithTag("bossBar").transform.GetChild(0).gameObject;
+        bossBar.SetActive(true);
+        bossHp = GameObject.FindGameObjectWithTag("bossHp");
+        bossPerc = GameObject.FindGameObjectWithTag("bossPerc");
+        bossName = GameObject.FindGameObjectWithTag("bossName");
+        bossName.GetComponent<TextMeshProUGUI>().text = "Lilith";
 
         GameObject[] _leftMeteorSpawns = GameObject.FindGameObjectsWithTag("leftMeteorSpawns");
         Transform[] _leftMeteorPOS = new Transform[_leftMeteorSpawns.Length];
@@ -115,8 +134,12 @@ public class Lilith : MonoBehaviourPun, IPunObservable
             if (PhotonNetwork.OfflineMode) { Destroy(gameObject); EnemyAI.PlayerKills++; }
             else photonView.RPC("DestroyEnemyByID", RpcTarget.AllBuffered, photonView.ViewID);
             EnemyAI.deaths++;
+            //if(PhotonNetwork.OfflineMode) FindObjectOfType<RandomSpawner>().bossBar.SetActive(false);
+            bossBar.SetActive(false);
         }
         float hpPercent = health / maxHealth;
+        bossHp.GetComponent<Image>().fillAmount = hpPercent;
+        bossPerc.GetComponent<TextMeshProUGUI>().text = "" + Mathf.Ceil(hpPercent * 100) + "%";
         if (hpPercent >= 0.65f && hpPercent <= 0.9f && !mech90)
         {
             mech90 = true;
@@ -230,11 +253,15 @@ public class Lilith : MonoBehaviourPun, IPunObservable
     {
         if (stream.IsWriting)
         {
-            stream.SendNext(damage);
+            stream.SendNext(exploDamage);
+            stream.SendNext(meteorDamage);
+            stream.SendNext(homingDamage);
         }
         else
         {
-            this.damage = (float)stream.ReceiveNext();
+            this.exploDamage = (float)stream.ReceiveNext();
+            this.meteorDamage = (float)stream.ReceiveNext();
+            this.homingDamage = (float)stream.ReceiveNext();
         }
     }
 
@@ -258,6 +285,13 @@ public class Lilith : MonoBehaviourPun, IPunObservable
     {
         PhotonView.Find(bViewID).gameObject.GetComponent<Rigidbody2D>().AddForce(dir * 0.02f);
     }
+
+    [PunRPC]
+    public void DisplayError(string error, float time)
+    {
+        FindObjectOfType<ERROR>().DisplayError(error, time);
+    }
+
 
 
     public Transform findFurthest()
@@ -288,7 +322,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         for(int i = 0; i < bossMeteorSpawns.Length; i++)
         {
             GameObject _meteor = PhotonNetwork.Instantiate(homingMeteor.name, bossMeteorSpawns[i].position, Quaternion.identity);
-            _meteor.GetComponent<Meteors>().damage = damage;
+            _meteor.GetComponent<Meteors>().damage = homingDamage;
             meteors[i] = _meteor;
         }
 
@@ -308,21 +342,24 @@ public class Lilith : MonoBehaviourPun, IPunObservable
 
     IEnumerator readyForMech(int state, int mech)
     {
-        if(mech == 10)
-        {
-            FindObjectOfType<ERROR>().DisplayError("Lilith  has  failed  to  capture  her  sacrifice  and  is  enraged", 3.5f);
-            yield return new WaitForSeconds(3f);
-        }
-        else
-        {
-            FindObjectOfType<ERROR>().DisplayError("Lilith  calls  for  help  from  above", 3);
-        }
-        if(!mech10) yield return new WaitForSeconds(2);
-
         canTP = false;
         canAttack = false;
         StopCoroutine("Teleport");
         StopCoroutine("BossPattern");
+        if (mech == 10)
+        {
+            if (PhotonNetwork.OfflineMode) FindObjectOfType<ERROR>().DisplayError("Lilith  has  failed  to  capture  her  sacrifice  and  is  enraged", 3.5f);
+            else photonView.RPC("DisplayError", RpcTarget.All, "Lilith  has  failed  to  capture  her  sacrifice  and  is  enraged", 3.5f);
+            yield return new WaitForSeconds(3f);
+        }
+        else
+        {
+            if (PhotonNetwork.OfflineMode) FindObjectOfType<ERROR>().DisplayError("Lilith  calls  for  help  from  above", 3);
+            else photonView.RPC("DisplayError", RpcTarget.All, "Lilith  calls  for  help  from  above", 3f);
+        }
+        if(!mech10) yield return new WaitForSeconds(2);
+
+        
         pc.enabled = false;
 
         for (float i = 1.0f; i >= 0; i -= 0.1f)
@@ -396,7 +433,8 @@ public class Lilith : MonoBehaviourPun, IPunObservable
 
         if (!mech10)
         {
-            FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+            if (PhotonNetwork.OfflineMode) FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+            else photonView.RPC("DisplayError", RpcTarget.All, "Lilith  is  locating  her  demon  sacrifice", 3.5f);
             yield return new WaitForSeconds(1.5f);
             Transform furth = findFurthest();
             furth.gameObject.GetComponent<PlayerController>().toggleMark();
@@ -423,7 +461,8 @@ public class Lilith : MonoBehaviourPun, IPunObservable
 
         if (!mech10)
         {
-            FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+            if(PhotonNetwork.OfflineMode) FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+            else photonView.RPC("DisplayError", RpcTarget.All, "Lilith  is  locating  her  demon  sacrifice", 3.5f);
             yield return new WaitForSeconds(1.5f);
             Transform furth = findFurthest();
             furth.gameObject.GetComponent<PlayerController>().toggleMark();
@@ -451,7 +490,8 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         //yield return new WaitForSeconds(2f);
         if (!mech10)
         {
-            FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+            if(PhotonNetwork.OfflineMode) FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+            else photonView.RPC("DisplayError", RpcTarget.All, "Lilith  is  locating  her  demon  sacrifice", 3.5f);
             yield return new WaitForSeconds(1.5f);
             Transform furth = findFurthest();
             furth.gameObject.GetComponent<PlayerController>().toggleMark();
@@ -470,7 +510,8 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         //Left
         StartCoroutine(readyForMech(1, 90));
         while (!ready) yield return null;
-        FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+        if(PhotonNetwork.OfflineMode) FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+        else photonView.RPC("DisplayError", RpcTarget.All, "Lilith  is  locating  her  demon  sacrifice", 3.5f);
         yield return new WaitForSeconds(1.5f);
         ready = false;
         Transform furthestPlayer = findFurthest();
@@ -482,7 +523,8 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         //Right
         StartCoroutine(readyForMech(2, 60));
         while (!ready) yield return null;
-        FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+        if(PhotonNetwork.OfflineMode) FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+        else photonView.RPC("DisplayError", RpcTarget.All, "Lilith  is  locating  her  demon  sacrifice", 3.5f);
         yield return new WaitForSeconds(1.5f);
         ready = false;
         furthestPlayer = findFurthest();
@@ -495,7 +537,8 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         //Middle
         StartCoroutine(readyForMech(0, 30));
         while (!ready) yield return null;
-        FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+        if(PhotonNetwork.OfflineMode) FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+        else photonView.RPC("DisplayError", RpcTarget.All, "Lilith  is  locating  her  demon  sacrifice", 3.5f);
         yield return new WaitForSeconds(1.5f);
         ready = false;
         furthestPlayer = findFurthest();
@@ -518,7 +561,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         for (int i = 0; i < bossMeteorSpawns.Length; i++)
         {
             GameObject _meteor = PhotonNetwork.Instantiate(homingMeteor.name, bossMeteorSpawns[i].position, Quaternion.identity);
-            _meteor.GetComponent<Meteors>().damage = damage;
+            _meteor.GetComponent<Meteors>().damage = homingDamage;
             meteors[i] = _meteor;
         }
 
@@ -535,7 +578,8 @@ public class Lilith : MonoBehaviourPun, IPunObservable
 
         yield return new WaitForSeconds(1);
 
-        FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+        if(PhotonNetwork.OfflineMode) FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+        else photonView.RPC("DisplayError", RpcTarget.All, "Lilith  is  locating  her  demon  sacrifice", 3.5f);
         yield return new WaitForSeconds(1.5f);
         Transform furthestPlayer = findFurthest();
         furthestPlayer.gameObject.GetComponent<PlayerController>().toggleMark();
@@ -551,7 +595,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         yield return new WaitForSeconds(time);
         GameObject _meteor = PhotonNetwork.Instantiate(meteor.name, _spawn.position, Quaternion.identity);
         _meteor.GetComponent<Rigidbody2D>().velocity = _spawn.right * Random.Range(7, 15);
-        _meteor.GetComponent<Meteors>().damage = damage;
+        _meteor.GetComponent<Meteors>().damage = meteorDamage;
     }
 
     IEnumerator Teleport(Transform p)
@@ -595,7 +639,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         pc.enabled = true;
 
         GameObject _explo = PhotonNetwork.Instantiate(explo.name, exploPos.position, Quaternion.identity);
-        _explo.GetComponent<ExploDEATH>().damage = damage;
+        _explo.GetComponent<ExploDEATH>().damage = exploDamage;
 
         while (true)
         {
@@ -663,7 +707,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         if (attack)
         {
             _explo = PhotonNetwork.Instantiate(explo.name, exploPos.position, Quaternion.identity);
-            _explo.GetComponent<ExploDEATH>().damage = damage;
+            _explo.GetComponent<ExploDEATH>().damage = exploDamage;
         }
         p.gameObject.GetComponent<PlayerController>().toggleMark();
     }

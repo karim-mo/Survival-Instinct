@@ -18,14 +18,14 @@ public class leftMeteorsMovement : MonoBehaviour
 
         for(int i = 0; i < 5; i++)
         {
-            pos.y += 0.2f;
+            pos.y += 0.3f;
             transform.position = pos;
             yield return new WaitForSeconds(0.1f);
         }
 
         for (int i = 0; i < 5; i++)
         {
-            pos.y -= 0.2f;
+            pos.y -= 0.3f;
             transform.position = pos;
             yield return new WaitForSeconds(0.1f);
         }

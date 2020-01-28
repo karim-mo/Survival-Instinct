@@ -17,14 +17,14 @@ public class topMeteorMovement : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            pos.x += 0.2f;
+            pos.x += 0.3f;
             transform.position = pos;
             yield return new WaitForSeconds(0.1f);
         }
 
         for (int i = 0; i < 5; i++)
         {
-            pos.x -= 0.2f;
+            pos.x -= 0.3f;
             transform.position = pos;
             yield return new WaitForSeconds(0.1f);
         }

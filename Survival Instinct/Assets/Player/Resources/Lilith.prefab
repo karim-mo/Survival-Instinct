@@ -197,7 +197,9 @@ MonoBehaviour:
   leftMeteorSpawns: []
   rightMeteorSpawns: []
   health: 1000
-  damage: 50
+  exploDamage: 50
+  meteorDamage: 10
+  homingDamage: 20
   onDeath: {fileID: 510980423108202391, guid: 0e6e478a80f47b54e8a72e47966d9f49, type: 3}
   fromPlayer: {fileID: 1332785467625980833, guid: 018423f204f7b9f489bbbc5851006438,
     type: 3}
@@ -206,6 +208,11 @@ MonoBehaviour:
   projectileSpeed: 13
   projectileCount: 20
   spreadAngle: 8
+  bossBar: {fileID: 0}
+  bossName: {fileID: 0}
+  bossHp: {fileID: 0}
+  bossPerc: {fileID: 0}
+  maxHealth: 0
 --- !u!60 &8675368490916976483
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -184,30 +184,43 @@ public class EnemyAI : MonoBehaviourPun, IPunObservable
         {
             //Debug.Log(isAttacking);
             //Debug.Log(collision.GetComponent<PhotonView>().ViewID);
-            if (!collision.GetComponent<PlayerController>().isJumpDashing && EnemyType == 0 && isAttacking)
+            //if (!collision.GetComponent<PlayerController>().isJumpDashing && EnemyType == 0 && isAttacking)
+            //{
+            //    //Debug.Log("xd");
+            //    AudioManager.Play("MeleeHit");
+            //    collision.GetComponent<PlayerController>().DamagePlayer(damage);
+            //    collision.GetComponent<PlayerController>().Knockback(10000, -transform.localScale.x / Mathf.Abs(transform.localScale.x));
+            //}
+            //else if (collision.GetComponent<PlayerController>().isJumpDashing)
+            //{
+            //    Health -= collision.GetComponent<PlayerController>().damage;
+            //    FindObjectOfType<TextOverlay>().Overlay(transform, "-" + collision.GetComponent<PlayerController>().damage, false);
+            //    Vector3 a = transform.position;
+            //    a.z = -0.4f;
+            //    GameObject parti = Instantiate(fromPlayer, a, Quaternion.identity);
+            //    collision.GetComponent<PlayerController>().health += 10;
+            //}
+            //else if (!collision.GetComponent<PlayerController>().isJumpDashing && EnemyType == 0 && !collision.GetComponent<PlayerController>().iframed && !isAttacking)
+            //{
+            //    //Debug.Log("xdd");
+            //    collision.GetComponent<PlayerController>().Knockback(5000, -transform.localScale.x / Mathf.Abs(transform.localScale.x));
+            //}
+
+            if (EnemyType == 0 && isAttacking)
             {
                 //Debug.Log("xd");
                 AudioManager.Play("MeleeHit");
                 collision.GetComponent<PlayerController>().DamagePlayer(damage);
                 collision.GetComponent<PlayerController>().Knockback(10000, -transform.localScale.x / Mathf.Abs(transform.localScale.x));
             }
-            else if (collision.GetComponent<PlayerController>().isJumpDashing)
-            {
-                Health -= collision.GetComponent<PlayerController>().damage;
-                FindObjectOfType<TextOverlay>().Overlay(transform, "-" + collision.GetComponent<PlayerController>().damage, false);
-                Vector3 a = transform.position;
-                a.z = -0.4f;
-                GameObject parti = Instantiate(fromPlayer, a, Quaternion.identity);
-                collision.GetComponent<PlayerController>().health += 10;
-            }
-            else if (!collision.GetComponent<PlayerController>().isJumpDashing && EnemyType == 0 && !collision.GetComponent<PlayerController>().iframed && !isAttacking)
+            else if (EnemyType == 0 && !collision.GetComponent<PlayerController>().iframed && !isAttacking)
             {
                 //Debug.Log("xdd");
                 collision.GetComponent<PlayerController>().Knockback(5000, -transform.localScale.x / Mathf.Abs(transform.localScale.x));
             }
 
 
-            
+
             //AudioManager.Play("Melee");
 
         }

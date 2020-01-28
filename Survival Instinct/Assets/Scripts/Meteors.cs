@@ -23,7 +23,7 @@ public class Meteors : MonoBehaviourPun, IPunObservable
             PhotonNetwork.Destroy(this.gameObject);
         }
 
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && !collision.GetComponent<PlayerController>().iframed)
         {
             Vector3 pos = transform.position;
             pos.y -= 0.5f;

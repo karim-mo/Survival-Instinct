@@ -475,6 +475,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
 
     protected IEnumerator OnGroundDash()
     {
+        StartCoroutine(IFrame(.5f));
         yield return new WaitForSeconds(.1f);
         canGroundDash = false;
         composer.m_XDamping = 3f;
@@ -486,8 +487,8 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
 
     protected IEnumerator OnJumpDash()
     {
-        isJumpDashing = true;
-        
+        //isJumpDashing = true;
+        StartCoroutine(IFrame(.5f));
         yield return new WaitForSeconds(.2f);
         //anim.SetInteger("state", 6);
         canJumpDash = false;
