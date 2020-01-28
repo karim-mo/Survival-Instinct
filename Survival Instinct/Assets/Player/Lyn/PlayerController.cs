@@ -377,12 +377,19 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
 
     protected void Flip()
     {
+        //Debug.Log(transform.childCount);
         facingRight = !facingRight;
         Vector3 _scale = transform.localScale;
         _scale.x *= -1;
         transform.localScale = _scale;
         for(int i = editorChildCount; i < transform.childCount; i++)
         {
+            if(transform.GetChild(i).name != "Canvas")
+            {
+                _scale = transform.GetChild(i).localScale;
+                _scale.x *= -1;
+                transform.GetChild(i).localScale = _scale;
+            }
             for(int j = 0; j < transform.GetChild(i).childCount; j++)
             {
                 if (transform.GetChild(i).GetChild(j).tag == "Mark") continue;

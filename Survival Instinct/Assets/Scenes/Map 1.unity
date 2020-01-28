@@ -55401,7 +55401,7 @@ MonoBehaviour:
   sounds:
   - name: BGM
     clip: {fileID: 8300000, guid: dbaeb4a8f159668439fec6fe76d77ae2, type: 3}
-    volume: 0.7
+    volume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -55518,7 +55518,7 @@ MonoBehaviour:
   - name: Flying
     prefab:
     - {fileID: 4073034234175506432, guid: b2a181d7c73f1ee4c9bd0335cd50567d, type: 3}
-    spawnCount: 1
+    spawnCount: 10
     spawnRate: 2
   - name: Flying
     prefab:
