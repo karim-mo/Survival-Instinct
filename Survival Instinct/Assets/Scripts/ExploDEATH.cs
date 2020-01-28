@@ -24,7 +24,7 @@ public class ExploDEATH : MonoBehaviourPun, IPunObservable
 
     public void activateBC()
     {
-        bc.enabled = true;
+        if(bc != null) bc.enabled = true;
     }
 
 

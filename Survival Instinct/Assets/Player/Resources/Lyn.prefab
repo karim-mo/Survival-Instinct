@@ -285,6 +285,7 @@ MonoBehaviour:
   transition: {fileID: 0}
   playerName: {fileID: 6007750897814584293}
   hpBar: {fileID: 4570193143063718535}
+  Mark: {fileID: 487663740213448083}
   collisionRadius: 0.11
   bottomOffset: {x: -0.06, y: -0.29}
   sword: {fileID: 3746687382801616658}

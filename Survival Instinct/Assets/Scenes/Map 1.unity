@@ -55769,7 +55769,7 @@ MonoBehaviour:
   hpCap: 30
   hpPtsSoft: 15
   hpPts: 5
-  baseDmg: 800
+  baseDmg: 50
   DmgCap: 40
   DmgPtsSoft: 7
   DmgPts: 2

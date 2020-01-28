@@ -308,7 +308,16 @@ public class Lilith : MonoBehaviourPun, IPunObservable
 
     IEnumerator readyForMech(int state, int mech)
     {
-        //message and wait time for mechanics
+        if(mech == 10)
+        {
+            FindObjectOfType<ERROR>().DisplayError("Lilith  has  failed  to  capture  her  sacrifice  and  is  enraged", 3.5f);
+            yield return new WaitForSeconds(3f);
+        }
+        else
+        {
+            FindObjectOfType<ERROR>().DisplayError("Lilith  calls  for  help  from  above", 3);
+        }
+        if(!mech10) yield return new WaitForSeconds(2);
 
         canTP = false;
         canAttack = false;
@@ -385,7 +394,15 @@ public class Lilith : MonoBehaviourPun, IPunObservable
             yield return new WaitForSeconds(0.5f);
         }
 
-        yield return new WaitForSeconds(2f);
+        if (!mech10)
+        {
+            FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+            yield return new WaitForSeconds(1.5f);
+            Transform furth = findFurthest();
+            furth.gameObject.GetComponent<PlayerController>().toggleMark();
+            yield return new WaitForSeconds(1.5f);
+            StartCoroutine(TeleportImm(furth, true));
+        }
         ready = true;
     }
 
@@ -404,7 +421,15 @@ public class Lilith : MonoBehaviourPun, IPunObservable
             yield return new WaitForSeconds(0.5f);
         }
 
-        yield return new WaitForSeconds(2f);
+        if (!mech10)
+        {
+            FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+            yield return new WaitForSeconds(1.5f);
+            Transform furth = findFurthest();
+            furth.gameObject.GetComponent<PlayerController>().toggleMark();
+            yield return new WaitForSeconds(1.5f);
+            StartCoroutine(TeleportImm(furth, true));
+        }
         ready = true;
     }
 
@@ -423,7 +448,16 @@ public class Lilith : MonoBehaviourPun, IPunObservable
             yield return new WaitForSeconds(0.5f);
         }
 
-        yield return new WaitForSeconds(2f);
+        //yield return new WaitForSeconds(2f);
+        if (!mech10)
+        {
+            FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+            yield return new WaitForSeconds(1.5f);
+            Transform furth = findFurthest();
+            furth.gameObject.GetComponent<PlayerController>().toggleMark();
+            yield return new WaitForSeconds(1.5f);
+            StartCoroutine(TeleportImm(furth, true));
+        }
         ready = true;
         if (mech10) mech10B = true;
     }
@@ -436,20 +470,24 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         //Left
         StartCoroutine(readyForMech(1, 90));
         while (!ready) yield return null;
-        FindObjectOfType<ERROR>().DisplayError("Lilith is locating her demon sacrifice.");
-        yield return new WaitForSeconds(3);
+        FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+        yield return new WaitForSeconds(1.5f);
         ready = false;
         Transform furthestPlayer = findFurthest();
+        furthestPlayer.gameObject.GetComponent<PlayerController>().toggleMark();
+        yield return new WaitForSeconds(1.5f);
         StartCoroutine(TeleportImm(furthestPlayer, true));
         yield return new WaitForSeconds(0.6f);
         
         //Right
         StartCoroutine(readyForMech(2, 60));
         while (!ready) yield return null;
-        FindObjectOfType<ERROR>().DisplayError("Lilith is locating her demon sacrifice.");
-        yield return new WaitForSeconds(3);
+        FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+        yield return new WaitForSeconds(1.5f);
         ready = false;
         furthestPlayer = findFurthest();
+        furthestPlayer.gameObject.GetComponent<PlayerController>().toggleMark();
+        yield return new WaitForSeconds(1.5f);
         StartCoroutine(TeleportImm(furthestPlayer, true));
         yield return new WaitForSeconds(0.6f);
 
@@ -457,10 +495,12 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         //Middle
         StartCoroutine(readyForMech(0, 30));
         while (!ready) yield return null;
-        FindObjectOfType<ERROR>().DisplayError("Lilith is locating her demon sacrifice.");
-        yield return new WaitForSeconds(3);
+        FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+        yield return new WaitForSeconds(1.5f);
         ready = false;
         furthestPlayer = findFurthest();
+        furthestPlayer.gameObject.GetComponent<PlayerController>().toggleMark();
+        yield return new WaitForSeconds(1.5f);
         StartCoroutine(TeleportImm(furthestPlayer, true));
         yield return new WaitForSeconds(0.6f);
 
@@ -495,9 +535,11 @@ public class Lilith : MonoBehaviourPun, IPunObservable
 
         yield return new WaitForSeconds(1);
 
-        FindObjectOfType<ERROR>().DisplayError("Lilith is locating her demon sacrifice.");
-        yield return new WaitForSeconds(3);
+        FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+        yield return new WaitForSeconds(1.5f);
         Transform furthestPlayer = findFurthest();
+        furthestPlayer.gameObject.GetComponent<PlayerController>().toggleMark();
+        yield return new WaitForSeconds(1.5f);
         StartCoroutine(TeleportImm(furthestPlayer, true));
         yield return new WaitForSeconds(0.6f);
 
@@ -623,5 +665,6 @@ public class Lilith : MonoBehaviourPun, IPunObservable
             _explo = PhotonNetwork.Instantiate(explo.name, exploPos.position, Quaternion.identity);
             _explo.GetComponent<ExploDEATH>().damage = damage;
         }
+        p.gameObject.GetComponent<PlayerController>().toggleMark();
     }
 }

@@ -12,12 +12,20 @@ public class ERROR : MonoBehaviour
         StopAllCoroutines();
         ErrorText.GetComponent<TextMeshProUGUI>().text = e;
         ErrorText.SetActive(true);
-        StartCoroutine("Despawn");
+        StartCoroutine(Despawn(2));
     }
 
-    IEnumerator Despawn()
+    public void DisplayError(string e, float time)
     {
-        yield return new WaitForSeconds(2);
+        StopAllCoroutines();
+        ErrorText.GetComponent<TextMeshProUGUI>().text = e;
+        ErrorText.SetActive(true);
+        StartCoroutine(Despawn(time));
+    }
+
+    IEnumerator Despawn(float time)
+    {
+        yield return new WaitForSeconds(time);
         ErrorText.SetActive(false);
     }
 }

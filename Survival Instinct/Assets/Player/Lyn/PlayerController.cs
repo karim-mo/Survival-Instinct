@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
     public Animator transition;
     public GameObject playerName;
     public GameObject hpBar;
+    public GameObject Mark;
 
     [Header("Collision")]
     public float collisionRadius = 0.25f;
@@ -358,6 +359,11 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
         canZAttack = true;
         canGroundDash = true;
         canJumpDash = true;
+    }
+    
+    public void toggleMark()
+    {
+        Mark.SetActive(!Mark.activeInHierarchy);
     }
 
     protected bool IsGrounded()
