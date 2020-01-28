@@ -41,6 +41,7 @@ public class RandomSpawner : MonoBehaviourPun
     void Start()
     {
         if (waves == null) return;
+        waveCount = 8;
         StartCoroutine(awake());
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
@@ -143,8 +144,8 @@ public class RandomSpawner : MonoBehaviourPun
             temp = PhotonNetwork.Instantiate(enemy.name, spawn.position, spawn.rotation).transform;
             if (waveCount % 9 == 0 && waveCount != 0)
             {
-                temp.GetComponent<Boss1>().health += PhotonNetwork.OfflineMode == true ? 17000 : 17000 * 5;
-                temp.GetComponent<Boss1>().damage += 250;
+                temp.GetComponent<Boss1>().health += PhotonNetwork.OfflineMode == true ? 9000 : 17000 * 5;
+                temp.GetComponent<Boss1>().damage += 0;
             }           
             return;
         }
