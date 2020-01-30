@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
     public Animator transition;
     public GameObject playerName;
     public GameObject hpBar;
+    public GameObject Mark;
 
     [Header("Collision")]
     public float collisionRadius = 0.25f;
@@ -359,6 +360,11 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
         canGroundDash = true;
         canJumpDash = true;
     }
+    
+    public void toggleMark()
+    {
+        Mark.SetActive(!Mark.activeInHierarchy);
+    }
 
     protected bool IsGrounded()
     {
@@ -377,14 +383,22 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
 
     protected void Flip()
     {
+        //Debug.Log(transform.childCount);
         facingRight = !facingRight;
         Vector3 _scale = transform.localScale;
         _scale.x *= -1;
         transform.localScale = _scale;
         for(int i = editorChildCount; i < transform.childCount; i++)
         {
+            if(transform.GetChild(i).name != "Canvas")
+            {
+                _scale = transform.GetChild(i).localScale;
+                _scale.x *= -1;
+                transform.GetChild(i).localScale = _scale;
+            }
             for(int j = 0; j < transform.GetChild(i).childCount; j++)
             {
+                if (transform.GetChild(i).GetChild(j).tag == "Mark") continue;
                 _scale = transform.GetChild(i).GetChild(j).localScale;
                 _scale.x *= -1;
                 transform.GetChild(i).GetChild(j).localScale = _scale;
@@ -461,6 +475,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
 
     protected IEnumerator OnGroundDash()
     {
+        StartCoroutine(IFrame(.5f));
         yield return new WaitForSeconds(.1f);
         canGroundDash = false;
         composer.m_XDamping = 3f;
@@ -472,8 +487,8 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
 
     protected IEnumerator OnJumpDash()
     {
-        isJumpDashing = true;
-        
+        //isJumpDashing = true;
+        StartCoroutine(IFrame(.5f));
         yield return new WaitForSeconds(.2f);
         //anim.SetInteger("state", 6);
         canJumpDash = false;

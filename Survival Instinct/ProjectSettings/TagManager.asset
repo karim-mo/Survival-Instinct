@@ -33,6 +33,14 @@ TagManager:
   - leftPos
   - rightPos
   - leftMeteorSpawns
+  - rightMeteorSpawns
+  - topMeteorSpawns
+  - meteorGround
+  - Mark
+  - bossBar
+  - bossHp
+  - bossPerc
+  - bossName
   layers:
   - Default
   - TransparentFX

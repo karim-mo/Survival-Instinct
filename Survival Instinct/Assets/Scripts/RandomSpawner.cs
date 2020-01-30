@@ -2,7 +2,7 @@
 using UnityEngine;
 using TMPro;
 using Photon.Pun;
-
+using UnityEngine.SceneManagement;
 
 public class RandomSpawner : MonoBehaviourPun
 {
@@ -29,11 +29,20 @@ public class RandomSpawner : MonoBehaviourPun
     private float timer = 5f;   
     private bool go = false;
     private PlayerController player;
+    private GameObject boss;
     [HideInInspector]
     public int waveCount = 0;
     [HideInInspector]
     public int SpawnCount;
 
+    [Header("Misc")]
+    public Animator anim;
+
+    //[Header("Boss HP Bar")]
+    //public GameObject bossBar;
+    //public GameObject bossName;
+    //public GameObject bossHp;
+    //public GameObject bossPerc;
 
     private int hpratio = 0;
     private int dmgratio = 0;
@@ -41,6 +50,7 @@ public class RandomSpawner : MonoBehaviourPun
     void Start()
     {
         if (waves == null) return;
+        waveCount = PlayerPrefs.GetInt("Checkpoint", 0);
         StartCoroutine(awake());
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
@@ -64,6 +74,24 @@ public class RandomSpawner : MonoBehaviourPun
             {
                 go = false;
                 EnemyAI.PlayerKills = 0;
+                PlayerPrefs.SetInt("Checkpoint", 0);
+                waveCount++;
+                if (PhotonNetwork.OfflineMode)
+                {
+                    if (waveCount == waves.Length)
+                    {
+                        anim.SetTrigger("FadeOut");
+                        PlayerPrefs.SetInt("scene", SceneManager.GetActiveScene().buildIndex + 1);
+                        return;
+                    }
+                }
+                else
+                {
+                    PhotonNetwork.AutomaticallySyncScene = true;
+                    PlayerPrefs.SetInt("scene", SceneManager.GetActiveScene().buildIndex + 1);
+                    PhotonNetwork.LoadLevel("LoadingScreen");
+                    return;
+                }
                 if (PhotonNetwork.OfflineMode)
                 {
                     FindObjectOfType<StatsGUIConfirm>().Panel.SetActive(true);
@@ -71,7 +99,8 @@ public class RandomSpawner : MonoBehaviourPun
                     player.Disable();
                 }
                 else { photonView.RPC("StatsPanel", RpcTarget.All); }
-                waveCount++;              
+                
+                
                 StartCoroutine(awake());
                // return;
             }
@@ -136,16 +165,34 @@ public class RandomSpawner : MonoBehaviourPun
         }
         else if(name == "Boss")
         {
+            PlayerPrefs.SetInt("Checkpoint", waveCount);
             SpawnCount = count;
             Transform spawn = bossSpawns[Random.Range(0, 20) % bossSpawns.Length];
             spawn.position = new Vector3(spawn.position.x, spawn.position.y, 0);
 
             temp = PhotonNetwork.Instantiate(enemy.name, spawn.position, spawn.rotation).transform;
-            if (waveCount % 9 == 0 && waveCount != 0)
-            {
-                temp.GetComponent<Boss1>().health += PhotonNetwork.OfflineMode == true ? 17000 : 17000 * 5;
-                temp.GetComponent<Boss1>().damage += 250;
-            }           
+            //boss = temp.gameObject;
+
+            //if (PhotonNetwork.OfflineMode)
+            //{
+            //    bossBar.SetActive(true);
+            //    bossName.GetComponent<TextMeshProUGUI>().text = enemy.name;
+            //    bossHp.GetComponent<BossHpBar>().boss = boss;
+            //    bossPerc.GetComponent<BossPercent>().boss = boss;
+            //}
+            //else
+            //{
+            //    photonView.RPC("activateBossBar", RpcTarget.All, enemy.name);
+            //}
+            temp.GetComponent<Lilith>().health = PhotonNetwork.OfflineMode ? temp.GetComponent<Lilith>().health : temp.GetComponent<Lilith>().health * 4;
+
+
+
+            //if (waveCount % 9 == 0 && waveCount != 0)
+            //{
+            //    temp.GetComponent<Lilith>().health += PhotonNetwork.OfflineMode == true ? 9000 : 17000 * 5;
+            //    temp.GetComponent<Lilith>().damage += 0;
+            //}           
             return;
         }
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
@@ -222,8 +269,25 @@ public class RandomSpawner : MonoBehaviourPun
     }
 
     [PunRPC]
-    public void DisplayError(string erorr)
+    public void DisplayError(string error)
     {
-        FindObjectOfType<ERROR>().DisplayError(erorr);
+        FindObjectOfType<ERROR>().DisplayError(error);
     }
+
+    
+
+    //[PunRPC]
+    //public void activateBossBar(string name)
+    //{
+    //    bossBar.SetActive(true);
+    //    bossName.GetComponent<TextMeshProUGUI>().text = name;
+    //    bossHp.GetComponent<BossHpBar>().boss = boss;
+    //    bossPerc.GetComponent<BossPercent>().boss = boss;
+    //}
+
+    //[PunRPC]
+    //public void DeactivateBossBar()
+    //{
+    //    bossBar.SetActive(false);
+    //}
 }

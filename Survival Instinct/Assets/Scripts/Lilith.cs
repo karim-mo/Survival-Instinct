@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using TMPro;
+using UnityEngine.UI;
 
 public class Lilith : MonoBehaviourPun, IPunObservable
 {
@@ -26,7 +28,9 @@ public class Lilith : MonoBehaviourPun, IPunObservable
 
     [Header("Stats")]
     public float health;
-    public float damage;
+    public float exploDamage;
+    public float meteorDamage;
+    public float homingDamage;
 
     [Header("Particles")]
     public GameObject onDeath;
@@ -40,13 +44,21 @@ public class Lilith : MonoBehaviourPun, IPunObservable
     public float spreadAngle = 8.0f;
 
 
+    [Header("Boss HP Bar")]
+    public GameObject bossBar;
+    public GameObject bossName;
+    public GameObject bossHp;
+    public GameObject bossPerc;
+
+
     Transform player;
 
     SpriteRenderer sr;
     PolygonCollider2D pc;
     Animator anim;
 
-    float maxHealth = 0;
+    [HideInInspector]
+    public float maxHealth = 0;
 
     bool canTP = false;
     bool canMove = false;
@@ -57,6 +69,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
     bool mech60 = false;
     bool mech30 = false;
     bool mech10 = false;
+    bool mech10B = false;
 
     void Start()
     {
@@ -70,6 +83,13 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         leftPos = GameObject.FindGameObjectWithTag("leftPos").gameObject.transform;
         rightPos = GameObject.FindGameObjectWithTag("rightPos").gameObject.transform;
 
+        bossBar = GameObject.FindGameObjectWithTag("bossBar").transform.GetChild(0).gameObject;
+        bossBar.SetActive(true);
+        bossHp = GameObject.FindGameObjectWithTag("bossHp");
+        bossPerc = GameObject.FindGameObjectWithTag("bossPerc");
+        bossName = GameObject.FindGameObjectWithTag("bossName");
+        bossName.GetComponent<TextMeshProUGUI>().text = "Lilith";
+
         GameObject[] _leftMeteorSpawns = GameObject.FindGameObjectsWithTag("leftMeteorSpawns");
         Transform[] _leftMeteorPOS = new Transform[_leftMeteorSpawns.Length];
         int i = 0;
@@ -78,6 +98,24 @@ public class Lilith : MonoBehaviourPun, IPunObservable
             _leftMeteorPOS[i++] = p.transform;
         }
         leftMeteorSpawns = _leftMeteorPOS;
+
+        GameObject[] _rightMeteorSpawns = GameObject.FindGameObjectsWithTag("rightMeteorSpawns");
+        Transform[] _rightMeteorPOS = new Transform[_rightMeteorSpawns.Length];
+        i = 0;
+        foreach (GameObject p in _rightMeteorSpawns)
+        {
+            _rightMeteorPOS[i++] = p.transform;
+        }
+        rightMeteorSpawns = _rightMeteorPOS;
+
+        GameObject[] _topMeteorSpawns = GameObject.FindGameObjectsWithTag("topMeteorSpawns");
+        Transform[] _topMeteorPOS = new Transform[_topMeteorSpawns.Length];
+        i = 0;
+        foreach (GameObject p in _topMeteorSpawns)
+        {
+            _topMeteorPOS[i++] = p.transform;
+        }
+        topMeteorSpawns = _topMeteorPOS;
         maxHealth = health;
 
         StartCoroutine("BossPattern");
@@ -96,8 +134,12 @@ public class Lilith : MonoBehaviourPun, IPunObservable
             if (PhotonNetwork.OfflineMode) { Destroy(gameObject); EnemyAI.PlayerKills++; }
             else photonView.RPC("DestroyEnemyByID", RpcTarget.AllBuffered, photonView.ViewID);
             EnemyAI.deaths++;
+            //if(PhotonNetwork.OfflineMode) FindObjectOfType<RandomSpawner>().bossBar.SetActive(false);
+            bossBar.SetActive(false);
         }
         float hpPercent = health / maxHealth;
+        bossHp.GetComponent<Image>().fillAmount = hpPercent;
+        bossPerc.GetComponent<TextMeshProUGUI>().text = "" + Mathf.Ceil(hpPercent * 100) + "%";
         if (hpPercent >= 0.65f && hpPercent <= 0.9f && !mech90)
         {
             mech90 = true;
@@ -211,11 +253,15 @@ public class Lilith : MonoBehaviourPun, IPunObservable
     {
         if (stream.IsWriting)
         {
-            stream.SendNext(damage);
+            stream.SendNext(exploDamage);
+            stream.SendNext(meteorDamage);
+            stream.SendNext(homingDamage);
         }
         else
         {
-            this.damage = (float)stream.ReceiveNext();
+            this.exploDamage = (float)stream.ReceiveNext();
+            this.meteorDamage = (float)stream.ReceiveNext();
+            this.homingDamage = (float)stream.ReceiveNext();
         }
     }
 
@@ -231,13 +277,39 @@ public class Lilith : MonoBehaviourPun, IPunObservable
     {
         PhotonView enemy = PhotonView.Find(eViewID);
         if (enemy == null) return;
-        enemy.gameObject.GetComponent<Boss1>().health -= dmg;
+        enemy.gameObject.GetComponent<Lilith>().health -= dmg;
     }
 
     [PunRPC]
     public void SendBullet(int bViewID, Vector2 dir)
     {
         PhotonView.Find(bViewID).gameObject.GetComponent<Rigidbody2D>().AddForce(dir * 0.02f);
+    }
+
+    [PunRPC]
+    public void DisplayError(string error, float time)
+    {
+        FindObjectOfType<ERROR>().DisplayError(error, time);
+    }
+
+
+
+    public Transform findFurthest()
+    {
+        Transform _player = null;
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+        float maxDist = -999999;
+        foreach(GameObject p in players)
+        {
+            float dist = Vector2.Distance(this.transform.position, p.transform.position);
+            if (dist > maxDist)
+            {
+                maxDist = dist;
+                _player = p.transform;
+            }
+        }
+        return _player;
     }
 
 
@@ -250,6 +322,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         for(int i = 0; i < bossMeteorSpawns.Length; i++)
         {
             GameObject _meteor = PhotonNetwork.Instantiate(homingMeteor.name, bossMeteorSpawns[i].position, Quaternion.identity);
+            _meteor.GetComponent<Meteors>().damage = homingDamage;
             meteors[i] = _meteor;
         }
 
@@ -269,12 +342,24 @@ public class Lilith : MonoBehaviourPun, IPunObservable
 
     IEnumerator readyForMech(int state, int mech)
     {
-        //message and wait time for mechanics
-
         canTP = false;
         canAttack = false;
         StopCoroutine("Teleport");
         StopCoroutine("BossPattern");
+        if (mech == 10)
+        {
+            if (PhotonNetwork.OfflineMode) FindObjectOfType<ERROR>().DisplayError("Lilith  has  failed  to  capture  her  sacrifice  and  is  enraged", 3.5f);
+            else photonView.RPC("DisplayError", RpcTarget.All, "Lilith  has  failed  to  capture  her  sacrifice  and  is  enraged", 3.5f);
+            yield return new WaitForSeconds(3f);
+        }
+        else
+        {
+            if (PhotonNetwork.OfflineMode) FindObjectOfType<ERROR>().DisplayError("Lilith  calls  for  help  from  above", 3);
+            else photonView.RPC("DisplayError", RpcTarget.All, "Lilith  calls  for  help  from  above", 3f);
+        }
+        if(!mech10) yield return new WaitForSeconds(2);
+
+        
         pc.enabled = false;
 
         for (float i = 1.0f; i >= 0; i -= 0.1f)
@@ -288,6 +373,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         Color alpha = sr.color;
         alpha.a = 0f;
         sr.color = alpha;
+
         switch (state)
         {
             case 0:
@@ -300,7 +386,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
                 transform.position = rightPos.position;
                 break;
         }
-        
+
 
         for (float i = 0; i <= 1.0; i += 0.1f)
         {
@@ -313,7 +399,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         alpha = sr.color;
         alpha.a = 1.0f;
         sr.color = alpha;
-
+        
         anim.SetInteger("state", 1);
         //boss health bar communication goes here
         ready = false;
@@ -321,9 +407,12 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         StartCoroutine("_mech" + mech);
         while (!ready) yield return null;
         anim.SetInteger("state", 0);
-        canTP = true;
-        canAttack = true;
-        StartCoroutine("BossPattern");
+        if (!mech10)
+        {
+            canTP = true;
+            canAttack = true;
+            StartCoroutine("BossPattern");
+        }
         pc.enabled = true;
     }
 
@@ -342,7 +431,16 @@ public class Lilith : MonoBehaviourPun, IPunObservable
             yield return new WaitForSeconds(0.5f);
         }
 
-        yield return new WaitForSeconds(2f);
+        if (!mech10)
+        {
+            if (PhotonNetwork.OfflineMode) FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+            else photonView.RPC("DisplayError", RpcTarget.All, "Lilith  is  locating  her  demon  sacrifice", 3.5f);
+            yield return new WaitForSeconds(1.5f);
+            Transform furth = findFurthest();
+            furth.gameObject.GetComponent<PlayerController>().toggleMark();
+            yield return new WaitForSeconds(1.5f);
+            StartCoroutine(TeleportImm(furth, true));
+        }
         ready = true;
     }
 
@@ -361,7 +459,16 @@ public class Lilith : MonoBehaviourPun, IPunObservable
             yield return new WaitForSeconds(0.5f);
         }
 
-        yield return new WaitForSeconds(2f);
+        if (!mech10)
+        {
+            if(PhotonNetwork.OfflineMode) FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+            else photonView.RPC("DisplayError", RpcTarget.All, "Lilith  is  locating  her  demon  sacrifice", 3.5f);
+            yield return new WaitForSeconds(1.5f);
+            Transform furth = findFurthest();
+            furth.gameObject.GetComponent<PlayerController>().toggleMark();
+            yield return new WaitForSeconds(1.5f);
+            StartCoroutine(TeleportImm(furth, true));
+        }
         ready = true;
     }
 
@@ -380,8 +487,107 @@ public class Lilith : MonoBehaviourPun, IPunObservable
             yield return new WaitForSeconds(0.5f);
         }
 
-        yield return new WaitForSeconds(2f);
+        //yield return new WaitForSeconds(2f);
+        if (!mech10)
+        {
+            if(PhotonNetwork.OfflineMode) FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+            else photonView.RPC("DisplayError", RpcTarget.All, "Lilith  is  locating  her  demon  sacrifice", 3.5f);
+            yield return new WaitForSeconds(1.5f);
+            Transform furth = findFurthest();
+            furth.gameObject.GetComponent<PlayerController>().toggleMark();
+            yield return new WaitForSeconds(1.5f);
+            StartCoroutine(TeleportImm(furth, true));
+        }
         ready = true;
+        if (mech10) mech10B = true;
+    }
+
+    IEnumerator _mech10()
+    {
+        StopCoroutine("readyForMech");
+        ready = false;
+        
+        //Left
+        StartCoroutine(readyForMech(1, 90));
+        while (!ready) yield return null;
+        if(PhotonNetwork.OfflineMode) FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+        else photonView.RPC("DisplayError", RpcTarget.All, "Lilith  is  locating  her  demon  sacrifice", 3.5f);
+        yield return new WaitForSeconds(1.5f);
+        ready = false;
+        Transform furthestPlayer = findFurthest();
+        furthestPlayer.gameObject.GetComponent<PlayerController>().toggleMark();
+        yield return new WaitForSeconds(1.5f);
+        StartCoroutine(TeleportImm(furthestPlayer, true));
+        yield return new WaitForSeconds(0.6f);
+        
+        //Right
+        StartCoroutine(readyForMech(2, 60));
+        while (!ready) yield return null;
+        if(PhotonNetwork.OfflineMode) FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+        else photonView.RPC("DisplayError", RpcTarget.All, "Lilith  is  locating  her  demon  sacrifice", 3.5f);
+        yield return new WaitForSeconds(1.5f);
+        ready = false;
+        furthestPlayer = findFurthest();
+        furthestPlayer.gameObject.GetComponent<PlayerController>().toggleMark();
+        yield return new WaitForSeconds(1.5f);
+        StartCoroutine(TeleportImm(furthestPlayer, true));
+        yield return new WaitForSeconds(0.6f);
+
+
+        //Middle
+        StartCoroutine(readyForMech(0, 30));
+        while (!ready) yield return null;
+        if(PhotonNetwork.OfflineMode) FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+        else photonView.RPC("DisplayError", RpcTarget.All, "Lilith  is  locating  her  demon  sacrifice", 3.5f);
+        yield return new WaitForSeconds(1.5f);
+        ready = false;
+        furthestPlayer = findFurthest();
+        furthestPlayer.gameObject.GetComponent<PlayerController>().toggleMark();
+        yield return new WaitForSeconds(1.5f);
+        StartCoroutine(TeleportImm(furthestPlayer, true));
+        yield return new WaitForSeconds(0.6f);
+
+        while (!mech10B) yield return null;
+        StartCoroutine("_mech10B");
+
+        //ready = true;
+        //yield return null;
+    }
+
+    IEnumerator _mech10B()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] meteors = new GameObject[4];
+        for (int i = 0; i < bossMeteorSpawns.Length; i++)
+        {
+            GameObject _meteor = PhotonNetwork.Instantiate(homingMeteor.name, bossMeteorSpawns[i].position, Quaternion.identity);
+            _meteor.GetComponent<Meteors>().damage = homingDamage;
+            meteors[i] = _meteor;
+        }
+
+        yield return new WaitForSeconds(1);
+
+        int k = 3;
+        int j = 0;
+        while (k >= 0)
+        {
+            meteors[k].GetComponent<HomingMissile>().target = players[j % players.Length].transform;
+            j++;
+            k--;
+        }
+
+        yield return new WaitForSeconds(1);
+
+        if(PhotonNetwork.OfflineMode) FindObjectOfType<ERROR>().DisplayError("Lilith  is  locating  her  demon  sacrifice", 3.5f);
+        else photonView.RPC("DisplayError", RpcTarget.All, "Lilith  is  locating  her  demon  sacrifice", 3.5f);
+        yield return new WaitForSeconds(1.5f);
+        Transform furthestPlayer = findFurthest();
+        furthestPlayer.gameObject.GetComponent<PlayerController>().toggleMark();
+        yield return new WaitForSeconds(1.5f);
+        StartCoroutine(TeleportImm(furthestPlayer, true));
+        yield return new WaitForSeconds(0.6f);
+
+        StartCoroutine("_mech10B");
     }
 
     IEnumerator spawn(float time, Transform _spawn)
@@ -389,6 +595,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         yield return new WaitForSeconds(time);
         GameObject _meteor = PhotonNetwork.Instantiate(meteor.name, _spawn.position, Quaternion.identity);
         _meteor.GetComponent<Rigidbody2D>().velocity = _spawn.right * Random.Range(7, 15);
+        _meteor.GetComponent<Meteors>().damage = meteorDamage;
     }
 
     IEnumerator Teleport(Transform p)
@@ -432,7 +639,7 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         pc.enabled = true;
 
         GameObject _explo = PhotonNetwork.Instantiate(explo.name, exploPos.position, Quaternion.identity);
-        _explo.GetComponent<ExploDEATH>().damage = damage;
+        _explo.GetComponent<ExploDEATH>().damage = exploDamage;
 
         while (true)
         {
@@ -500,7 +707,8 @@ public class Lilith : MonoBehaviourPun, IPunObservable
         if (attack)
         {
             _explo = PhotonNetwork.Instantiate(explo.name, exploPos.position, Quaternion.identity);
-            _explo.GetComponent<ExploDEATH>().damage = damage;
+            _explo.GetComponent<ExploDEATH>().damage = exploDamage;
         }
+        p.gameObject.GetComponent<PlayerController>().toggleMark();
     }
 }

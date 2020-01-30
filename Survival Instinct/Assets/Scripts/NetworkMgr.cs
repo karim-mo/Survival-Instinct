@@ -14,7 +14,10 @@ public class NetworkMgr : MonoBehaviourPun
     public GameObject cam;
     public Joystick steck;
 
-    public GameObject enem;
+    //public GameObject enem;
+    public GameObject spawnPoint;
+
+     
 
     private void Awake()
     {
@@ -26,7 +29,7 @@ public class NetworkMgr : MonoBehaviourPun
         PhotonNetwork.OfflineMode = true;
         PhotonNetwork.AutomaticallySyncScene = true;
 
-        GameObject Lyn = PhotonNetwork.Instantiate(this.playerPrefab.name, playerPrefab.transform.position, playerPrefab.transform.rotation);
+        GameObject Lyn = PhotonNetwork.Instantiate(this.playerPrefab.name, spawnPoint.transform.position, spawnPoint.transform.rotation);
         cam.GetComponent<CinemachineVirtualCamera>().Follow = Lyn.transform;
         cam.GetComponent<CinemachineVirtualCamera>().LookAt = Lyn.transform;
         Lyn.GetComponent<Lyn>().joystick = steck;

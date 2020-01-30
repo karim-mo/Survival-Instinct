@@ -55,7 +55,7 @@ public class Shield : MonoBehaviourPun
 
     private void Update()
     {       
-        if(health <= 0)
+        if(health <= 0 && recharging != States.MAXRECHARGE)
         {
             //Debug.Log("haha");
             health = 0;
@@ -65,8 +65,6 @@ public class Shield : MonoBehaviourPun
             player.Enable();
             recharging = States.MAXRECHARGE;
             StartCoroutine("Recharge");
-            
-            
         }
         ChargingBar.transform.GetChild(0).GetComponent<Image>().fillAmount = health / shieldAmt;
         if (ChargingBar.transform.GetChild(0).GetComponent<Image>().fillAmount >= 0.9999993f) ChargingBar.SetActive(false);

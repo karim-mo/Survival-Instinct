@@ -12,11 +12,13 @@ GameObject:
   - component: {fileID: 2440874118165741065}
   - component: {fileID: 3115342078142735195}
   - component: {fileID: 2149763372250615072}
+  - component: {fileID: 4769348127189560762}
   - component: {fileID: 6824000695266284620}
   - component: {fileID: 1931448253669995072}
   - component: {fileID: -8754194315584630587}
   - component: {fileID: -8208880767160744855}
-  - component: {fileID: 816246880128689900}
+  - component: {fileID: 7272190752302052693}
+  - component: {fileID: 4226710103301663160}
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Untagged
@@ -127,6 +129,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4769348127189560762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540043546942061308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f26f75d10e255949a619b7931bca16c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 0
+  explo: {fileID: 7894984294605643735, guid: 80d3b4d92a29b9f49bbad79153f62c44, type: 3}
+  damage: 0
 --- !u!58 &6824000695266284620
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -163,6 +180,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: -8754194315584630587}
   - {fileID: -8208880767160744855}
+  - {fileID: 4769348127189560762}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -197,7 +215,23 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 0
   m_SynchronizeScale: 0
---- !u!114 &816246880128689900
+--- !u!58 &7272190752302052693
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540043546942061308}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.13
+--- !u!114 &4226710103301663160
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,4 +243,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4cf80c33325f84b8072bdcfab3440e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 6
+  timer: 15
