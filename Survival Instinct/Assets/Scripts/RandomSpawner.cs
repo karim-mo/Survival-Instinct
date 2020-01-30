@@ -2,7 +2,7 @@
 using UnityEngine;
 using TMPro;
 using Photon.Pun;
-
+using UnityEngine.SceneManagement;
 
 public class RandomSpawner : MonoBehaviourPun
 {
@@ -35,6 +35,9 @@ public class RandomSpawner : MonoBehaviourPun
     [HideInInspector]
     public int SpawnCount;
 
+    [Header("Misc")]
+    public Animator anim;
+
     //[Header("Boss HP Bar")]
     //public GameObject bossBar;
     //public GameObject bossName;
@@ -47,7 +50,7 @@ public class RandomSpawner : MonoBehaviourPun
     void Start()
     {
         if (waves == null) return;
-        //waveCount = 9;
+        waveCount = PlayerPrefs.GetInt("Checkpoint", 0);
         StartCoroutine(awake());
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
@@ -69,9 +72,26 @@ public class RandomSpawner : MonoBehaviourPun
         {
             if (go && GameObject.FindGameObjectWithTag("Enemy") == null && EnemyAI.PlayerKills >= SpawnCount)
             {
-                //photonView.RPC("DeactivateBossBar", RpcTarget.All);
                 go = false;
                 EnemyAI.PlayerKills = 0;
+                PlayerPrefs.SetInt("Checkpoint", 0);
+                waveCount++;
+                if (PhotonNetwork.OfflineMode)
+                {
+                    if (waveCount == waves.Length)
+                    {
+                        anim.SetTrigger("FadeOut");
+                        PlayerPrefs.SetInt("scene", SceneManager.GetActiveScene().buildIndex + 1);
+                        return;
+                    }
+                }
+                else
+                {
+                    PhotonNetwork.AutomaticallySyncScene = true;
+                    PlayerPrefs.SetInt("scene", SceneManager.GetActiveScene().buildIndex + 1);
+                    PhotonNetwork.LoadLevel("LoadingScreen");
+                    return;
+                }
                 if (PhotonNetwork.OfflineMode)
                 {
                     FindObjectOfType<StatsGUIConfirm>().Panel.SetActive(true);
@@ -79,7 +99,8 @@ public class RandomSpawner : MonoBehaviourPun
                     player.Disable();
                 }
                 else { photonView.RPC("StatsPanel", RpcTarget.All); }
-                waveCount++;              
+                
+                
                 StartCoroutine(awake());
                // return;
             }
@@ -144,7 +165,7 @@ public class RandomSpawner : MonoBehaviourPun
         }
         else if(name == "Boss")
         {
-            
+            PlayerPrefs.SetInt("Checkpoint", waveCount);
             SpawnCount = count;
             Transform spawn = bossSpawns[Random.Range(0, 20) % bossSpawns.Length];
             spawn.position = new Vector3(spawn.position.x, spawn.position.y, 0);
