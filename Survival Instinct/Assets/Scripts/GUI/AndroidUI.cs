@@ -77,7 +77,7 @@ public class AndroidUI : MonoBehaviourPun
         {
             return;
         }
-        lyn.Jump(Vector2.up, lyn.jump);
+        lyn.Jump(Vector2.up);
         lyn.jump = false;
     }
 

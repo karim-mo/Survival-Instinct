@@ -31,6 +31,13 @@ public class Lyn : PlayerController
         }
         base.Update();
 
+        
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump(Vector2.up);
+            //jump = false;
+        }
         if (health <= 0 && !dead)
         {
             dead = true;
@@ -91,11 +98,7 @@ public class Lyn : PlayerController
             float x = Input.GetAxis("Horizontal");
             float y = Input.GetAxis("Vertical");
             Move(new Vector2(x, y), 1);
-            if (Input.GetKey(KeyCode.Space))
-            {
-                Jump(Vector2.up, jump);
-                jump = false;
-            }
+            
 
             float xR = Input.GetAxisRaw("Horizontal");
             if (Input.GetKey(KeyCode.LeftShift)) if (xR != 0) Dash(xR, 0, 6);

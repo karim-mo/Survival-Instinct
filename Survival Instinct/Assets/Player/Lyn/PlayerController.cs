@@ -69,7 +69,9 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
     protected bool onGround;
     protected bool waterFrame = false;   
     protected bool dead = false;
-    
+    protected bool isJumping = false;
+
+
 
     protected float move = 0f;
     protected float lasertimer = 10f;
@@ -78,6 +80,9 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
     protected float waterTimer = 0.4f;
     protected float consecutiveMelee = 0;
     protected float jumptimer = 0f;
+    protected int jumps = 0;
+    
+
     #endregion
 
 
@@ -128,6 +133,9 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
         onGround = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, collisionRadius, groundLayer);
         Physics2D.IgnoreLayerCollision(8, 12);
         Physics2D.IgnoreLayerCollision(8, 13);
+
+        //if (onGround) jumps = 0;
+        //else isJumping = true;
 
         if (!SpeedPower) speed = PlayerStats.Speed;
 
@@ -253,16 +261,21 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
         }
     }
 
-    public void Jump(Vector2 dir, bool jump2)
+    public void Jump(Vector2 dir)
     {
+        if (onGround) jumps = 0;
         if (!canMove) return;
         if (dead) return;
-        if (jump2) return;
-        if (!onGround) return;
-        jump = true;
+        if (!onGround && jumps == 0) return;
+        if (!onGround && jumps > 1) { jumps = 0; return; }
+        
+           
+        //if (!onGround && consecJump == 2) consecJump = 0;
+        //jump = true;
         rb.velocity = new Vector2(rb.velocity.x, 0);
         dir *= Time.fixedDeltaTime;
         rb.velocity += dir * jumpForce;
+        jumps++;
     }
 
     public void Move(Vector2 dir, int animState)
